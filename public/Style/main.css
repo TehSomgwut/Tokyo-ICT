@@ -163,7 +163,8 @@
             }
             .category_selected {
                 background:linear-gradient(to right, #FFFFFF, #FFAE00);
-                border:#FF66003D ;
+                border:#FF66003D solid 2px;
+                box-sizing: border-box;
             }
         }
         :last-child::-webkit-scrollbar {
@@ -286,4 +287,39 @@
         align-items: center;
         font-weight: 250;
     }
+
+    side {
+        position: fixed;
+        z-index: 1;
+        height: 100vh;
+        width: 60%;
+        overflow: hidden;
+        white-space: nowrap;
+        background:linear-gradient(#FF4B3A, #FFA600);
+        border-radius: 0 10px 10px 0;
+        box-sizing: border-box;
+        padding: 3%;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        color: white;
+        left: -100%;
+    }
+    side > div {
+        display:flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .close_sidebar {
+        position: fixed;
+        height: 100vh;
+        width: 40%;
+        right:0;
+        z-index: 1;
+        background-color: transparent;
+        display: block;
+        backdrop-filter: blur(5px);
+        right: -40%;
+    }
 }
+

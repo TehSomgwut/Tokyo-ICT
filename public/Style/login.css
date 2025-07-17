@@ -81,7 +81,7 @@ input:focus, .password:has(input:focus) label {
     outline: none;
     height: 50px;
 }
-#password_input {
+.password input {
     flex-grow: 1;
     border: none;
     background-color: var(--form-background);
@@ -154,6 +154,7 @@ a {
     margin-top: 20px;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .login_option > div:not(.or) {

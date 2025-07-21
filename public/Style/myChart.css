@@ -80,8 +80,6 @@ nav {
                 color: var(--sub-text)
             }
         }
-        div:not(.detail) {
-        }
     }
     .merchandise > div > div:not(.detail) {
         display: flex;

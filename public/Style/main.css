@@ -287,7 +287,6 @@
         flex-direction: column;
         align-items: center;
         font-weight: 250;
-        color: var(--sub-text);
     }
 
     side {

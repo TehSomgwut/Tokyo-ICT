@@ -1,8 +1,8 @@
 {
-  "name": "index.js",
+  "name": "tokyo-ict",
   "version": "1.0.0",
-  "description": "Test",
-  "main": "index.js",
+  "description": "Mini project OOP sec1",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/TehSomgwut/Tokyo-ICT/issues"
   },
-  "homepage": "https://github.com/TehSomgwut/Tokyo-ICT#readme"
+  "homepage": "https://github.com/TehSomgwut/Tokyo-ICT#readme",
+  "dependencies": {
+    "axios": "^1.12.2",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "mongoose": "^8.18.1",
+    "nodemon": "^3.1.10"
+  }
 }

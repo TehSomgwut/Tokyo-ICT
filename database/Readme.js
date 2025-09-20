@@ -2,10 +2,12 @@ const mongoose = require('../connectDB');
 
 
 // สร้าง Schema (โครงสร้างของข้อมูล)
-const userShema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     // Attribute (Column) : 
-    Username: String,
+    Cusname: String,
+    Gmail: {type: String, unique: true, request: true},
     Password: String,
+    Img_profile: String
     //...... so on
 })
 

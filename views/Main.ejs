@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/public/Style/main.css">
+    <link rel="stylesheet" href="Style/main.css">
 </head>
 <body>
-    <div class="sidebar">
+    <side>
+      <div class="img"></div>
       <div>
         <hr>
         <div>
@@ -27,7 +28,7 @@
         </div>
         <hr>
       </div>
-    </div>
+    </side>
     <div class="close_sidebar"></div>
     <nav>
         <div>
@@ -70,20 +71,14 @@
           <p>ดูทั้งหมด</p>
         </div>
         <div class="category_container">
+          <% for(let i = 0; i < categories.length; i++) { %>
           <div class="category_selected">
-            <img src="/public/IMAGE/Icon/Hot Discount.svg">
-            <h4>ขายดี</h4>
+            <img src="<%= categories[i].image %>">
+            <h4><%= categories[i].name %></h4>
           </div>
-          <div>
-            <img src="/public/IMAGE/Icon/Hot Discount.svg">
-            <h4>ขายดี</h4>
-          </div>
-          <div>
-            <img src="/public/IMAGE/Icon/Hot Discount.svg">
-            <h4>ขายดี</h4>
-          </div>
-          <div>
-            <img src="/public/IMAGE/Icon/Hot Discount.svg">
+          <% } %>
+          <div class="category_selected">
+            <img src="IMAGE/Icon/Hot Discount.svg">
             <h4>ขายดี</h4>
           </div>
         </div>
@@ -95,13 +90,15 @@
           <p>ดูทั้งหมด</p>
         </div>
         <div class="recommend_menus_container">
+          
+        <% for(let i = 0; i < recommendedMenus.length; i++) { %>
           <div class="recommend_menus">
-            <div class="recommend_menus_img"></div>
-            <h5>เซ็ตโตเกียว 5 ชิ้น</h5>
+            <div class="recommend_menus_img" style="background-image: url('<%= recommendedMenus[i].image %>'); background-size: cover; background-position: center;"></div>
+            <h5><%= recommendedMenus[i].name %></h5>
             <div>
               <div>
-                <p>คละใส้ได้</p>
-                <p class="recommend_price">50 ฿</p>
+                <p><%= recommendedMenus[i].description %></p>
+                <p class="recommend_price"><%= recommendedMenus[i].price %> ฿</p>
               </div>
               <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="9.4337" cy="9.4337" r="9.4337" fill="url(#paint0_linear_18_60)"/>
@@ -115,26 +112,7 @@
               </svg>
             </div>
           </div>
-          <div class="recommend_menus">
-            <div class="recommend_menus_img"></div>
-            <h5>เซ็ตโตเกียว 5 ชิ้น</h5>
-            <div>
-              <div>
-                <p>คละใส้ได้</p>
-                <p class="recommend_price">50 ฿</p>
-              </div>
-              <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="9.4337" cy="9.4337" r="9.4337" fill="url(#paint0_linear_18_60)"/>
-              <path d="M9.50001 5.70834V13.2917M5.70834 9.50001H13.2917" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <defs>
-              <linearGradient id="paint0_linear_18_60" x1="3" y1="2" x2="15" y2="17.5" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#FFA600"/>
-              <stop offset="1" stop-color="#FF4B3A"/>
-              </linearGradient>
-              </defs>
-              </svg>
-            </div>
-          </div>
+        <% } %>
           <div class="recommend_menus">
             <div class="recommend_menus_img"></div>
             <h5>เซ็ตโตเกียว 5 ชิ้น</h5>
@@ -287,13 +265,13 @@
       <hr>
       <div class="end">
       <p>สิ้นสุดหน้าฟีต!</p>
-        <img src="/public/IMAGE/Logo/TYICT Black.svg" width="100px" height="100px">
+        <img src="IMAGE/Logo/TYICT Black.svg" width="100px" height="100px">
         <p>เวอร์ชั่น 1.0.0 </p>
         <p>ติดต่อพวกเราโดยตรงที่: team@outlook.co.th</p>
         <p>ร้องเรียน, แจ้งปัญหาการใช้งานที่:</p>
         <p>ALL RIGHT RESERVED © TEAM2025</p>
       </div>
     </div>
-    <script src="/public/script/style/main.js"></script>
+    <script src="script/style/main.js"></script>
 </body>
 </html>

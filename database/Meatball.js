@@ -1,6 +1,6 @@
 const mongoose = require('../connectDB');
 
-const meatballsSchema = new mongoose.schema({
+const meatballsSchema = new mongoose.Schema({
     Price_meatball: Number,
     Type_meatball: String,
     Img_meatball: Buffer

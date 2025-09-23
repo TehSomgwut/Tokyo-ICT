@@ -1,6 +1,6 @@
-const mongoose = reqrire('../connectDB');
+const mongoose = require('../connectDB');
 
-const toppingsSchema = new mongoose.schema({
+const toppingsSchema = new mongoose.Schema({
     Price_Toppings: Number,
     Toppings_crepes: String,
     Img_Toppings: Buffer

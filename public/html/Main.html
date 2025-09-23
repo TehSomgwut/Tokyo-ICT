@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>เครปโตเกียว ตึก ICT</title>
-  <link rel="stylesheet" href="/public/Style/main.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/Style/main.css">
 </head>
 <body>
-    <side>
-      <div class="img"></div>
+    <div class="sidebar">
       <div>
         <hr>
         <div>
@@ -18,7 +17,7 @@
         <div>
           <p>คำสั่งซื้อของฉัน</p>
         </div>
-        <hr>
+        <hr> 
         <div>
           <p>บัญชีของฉัน</p>
         </div>
@@ -28,7 +27,7 @@
         </div>
         <hr>
       </div>
-    </side>
+    </div>
     <div class="close_sidebar"></div>
     <nav>
         <div>
@@ -50,176 +49,251 @@
         </div>
     </nav>
 
-    <button class="shopping_icon" aria-label="ตะกร้าสินค้า">
-      <svg viewBox="0 0 31 31" fill="none" aria-hidden="true">
-        <path d="M3.875 7.75L7.75 2.58333H23.25L27.125 7.75M3.875 7.75V25.8333C3.875 26.5185 4.14717 27.1756 4.63164 27.66C5.11611 28.1445 5.77319 28.4167 6.45833 28.4167H24.5417C25.2268 28.4167 25.8839 28.1445 26.3684 27.66C26.8528 27.1756 27.125 26.5185 27.125 25.8333V7.75M3.875 7.75H27.125M20.6667 12.9167C20.6667 14.287 20.1223 15.6011 19.1534 16.5701C18.1844 17.539 16.8703 18.0833 15.5 18.0833C14.1297 18.0833 12.8156 17.539 11.8466 16.5701C10.8777 15.6011 10.3333 14.287 10.3333 12.9167" stroke="white" stroke-width="2.6" stroke-linecap="round"/>
-      </svg>
-    </button>
-  </header>
 
-  <!-- เนื้อหา -->
-  <main class="page">
-    <section class="container">
-      <form class="search" action="#" method="get">
+    <div class="container">
+      <form>
         <p>สวัสดี <b>โอ๋เอ๋</b> วันนี้ทานอะไรดี</p>
-
-        <!-- ย้าย shop-status มาไว้ใต้ข้อความต้อนรับ -->
-        <div class="shop-status">
-          <h1>ร้านเปิด</h1>
-          <p>ตอนนี้ค่อนข้างกำลังยุ่ง</p>
-        </div>
-
         <div id="search">
-          <label for="search_input" aria-label="ค้นหา">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M16.67 16.64L21 21M19 11a8 8 0 11-16 0 8 8 0 0116 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <label for="search_input">
+            <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+            <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </label>
-          <input type="text" id="search_input" name="q" placeholder="ค้นหาเมนู โตเกียว เครป หรือลูกชิ้นทอดดี" />
+          <input type="text" name="search_input" id="search_input" placeholder="ค้นหาเมนู โตเกียว เครป หรือลูกชิ้นทอดดี">
         </div>
       </form>
-
-      <!-- หมวดหมู่ -->
-      <section class="category">
-        <header class="section_caption">
-          <h2>หมวดหมู่</h2><a href="#">ดูทั้งหมด</a>
-        </header>
+  
+      <div class="category">
+        <div class="category_caption">
+          <h3>หมวดหมู่</h3>
+          <p>ดูทั้งหมด</p>
+        </div>
         <div class="category_container">
-          <button class="chip is-active">
-            <img src="/public/IMAGE/Icon/Hot Discount.svg" alt="">
-            <span>ขายดี</span>
-          </button>
-          <button class="chip">
-            <img src="/public/IMAGE/Icon/Hot Discount.svg" alt="">
-            <span>ใหม่</span>
-          </button>
-          <button class="chip">
-            <img src="/public/IMAGE/Icon/Hot Discount.svg" alt="">
-            <span>เครื่องดื่ม</span>
-          </button>
-          <button class="chip">
-            <img src="/public/IMAGE/Icon/Hot Discount.svg" alt="">
-            <span>ขนม</span>
-          </button>
+          <div class="category_selected">
+            <img src="/public/IMAGE/Icon/Hot Discount.svg">
+            <h4>ขายดี</h4>
+          </div>
+          <div>
+            <img src="/public/IMAGE/Icon/Hot Discount.svg">
+            <h4>ขายดี</h4>
+          </div>
+          <div>
+            <img src="/public/IMAGE/Icon/Hot Discount.svg">
+            <h4>ขายดี</h4>
+          </div>
+          <div>
+            <img src="/public/IMAGE/Icon/Hot Discount.svg">
+            <h4>ขายดี</h4>
+          </div>
         </div>
-      </section>
-
-      <!-- เมนูแนะนำ -->
-      <section class="recommend">
-        <header class="section_caption">
-          <h2>เมนูแนะนำ</h2><a href="#">ดูทั้งหมด</a>
-        </header>
-        <div class="cards recommend_grid">
-          <article class="card">
-            <div class="thumb" role="img" aria-label="รูปเมนู"></div>
-            <h3>เซ็ตโตเกียว 5 ชิ้น</h3>
-            <div class="meta">
-              <p class="sub">คละไส้ได้</p>
-              <p class="price">50 ฿</p>
-            </div>
-            <button class="add" aria-label="เพิ่มลงตะกร้า">+</button>
-          </article>
-
-          <article class="card">
-            <div class="thumb"></div>
-            <h3>เครปไส้รวม</h3>
-            <div class="meta">
-              <p class="sub">เลือกหน้าได้</p>
-              <p class="price">45 ฿</p>
-            </div>
-            <button class="add" aria-label="เพิ่มลงตะกร้า">+</button>
-          </article>
-
-          <article class="card">
-            <div class="thumb"></div>
-            <h3>ลูกชิ้นทอด</h3>
-            <div class="meta">
-              <p class="sub">เลือกซอส</p>
-              <p class="price">30 ฿</p>
-            </div>
-            <button class="add" aria-label="เพิ่มลงตะกร้า">+</button>
-          </article>
+      </div>
+  
+      <div class="recommend">
+        <div class="recommend_caption">
+          <h3>เมนูแนะนำ</h3>
+          <p>ดูทั้งหมด</p>
         </div>
-      </section>
-
-      <!-- เมนูทั้งหมด -->
-      <section class="all_menus">
-        <header class="section_caption">
-          <h2>เมนูทั้งหมด</h2><a href="#">ดูทั้งหมด</a>
-        </header>
-        <div class="menu_grid">
-          <article class="rowcard">
-            <div class="thumb"></div>
-            <div class="info">
-              <h3>เมนูที่ 1</h3>
-              <p class="sub">เลือกไส้</p>
-              <p class="price">ราคา ฿</p>
+        <div class="recommend_menus_container">
+          <div class="recommend_menus">
+            <div class="recommend_menus_img"></div>
+            <h5>เซ็ตโตเกียว 5 ชิ้น</h5>
+            <div>
+              <div>
+                <p>คละใส้ได้</p>
+                <p class="recommend_price">50 ฿</p>
+              </div>
+              <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="9.4337" cy="9.4337" r="9.4337" fill="url(#paint0_linear_18_60)"/>
+              <path d="M9.50001 5.70834V13.2917M5.70834 9.50001H13.2917" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+              <linearGradient id="paint0_linear_18_60" x1="3" y1="2" x2="15" y2="17.5" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFA600"/>
+              <stop offset="1" stop-color="#FF4B3A"/>
+              </linearGradient>
+              </defs>
+              </svg>
             </div>
-            <button class="add" aria-label="เพิ่มเมนู">+</button>
-          </article>
-
-          <article class="rowcard">
-            <div class="thumb"></div>
-            <div class="info">
-              <h3>เมนูที่ 2</h3>
-              <p class="sub">เลือกหน้า</p>
-              <p class="price">ราคา ฿</p>
+          </div>
+          <div class="recommend_menus">
+            <div class="recommend_menus_img"></div>
+            <h5>เซ็ตโตเกียว 5 ชิ้น</h5>
+            <div>
+              <div>
+                <p>คละใส้ได้</p>
+                <p class="recommend_price">50 ฿</p>
+              </div>
+              <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="9.4337" cy="9.4337" r="9.4337" fill="url(#paint0_linear_18_60)"/>
+              <path d="M9.50001 5.70834V13.2917M5.70834 9.50001H13.2917" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+              <linearGradient id="paint0_linear_18_60" x1="3" y1="2" x2="15" y2="17.5" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFA600"/>
+              <stop offset="1" stop-color="#FF4B3A"/>
+              </linearGradient>
+              </defs>
+              </svg>
             </div>
-            <button class="add" aria-label="เพิ่มเมนู">+</button>
-          </article>
-
-          <article class="rowcard">
-            <div class="thumb"></div>
-            <div class="info">
-              <h3>เมนูที่ 3</h3>
-              <p class="sub">เครื่องดื่ม</p>
-              <p class="price">ราคา ฿</p>
+          </div>
+          <div class="recommend_menus">
+            <div class="recommend_menus_img"></div>
+            <h5>เซ็ตโตเกียว 5 ชิ้น</h5>
+            <div>
+              <div>
+                <p>คละใส้ได้</p>
+                <p class="recommend_price">50 ฿</p>
+              </div>
+              <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="9.4337" cy="9.4337" r="9.4337" fill="url(#paint0_linear_18_60)"/>
+              <path d="M9.50001 5.70834V13.2917M5.70834 9.50001H13.2917" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+              <linearGradient id="paint0_linear_18_60" x1="3" y1="2" x2="15" y2="17.5" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFA600"/>
+              <stop offset="1" stop-color="#FF4B3A"/>
+              </linearGradient>
+              </defs>
+              </svg>
             </div>
-            <button class="add" aria-label="เพิ่มเมนู">+</button>
-          </article>
+          </div>
+          <div class="recommend_menus">
+            <div class="recommend_menus_img"></div>
+            <h5>เซ็ตโตเกียว 5 ชิ้น</h5>
+            <div>
+              <div>
+                <p>คละใส้ได้</p>
+                <p class="recommend_price">50 ฿</p>
+              </div>
+              <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="9.4337" cy="9.4337" r="9.4337" fill="url(#paint0_linear_18_60)"/>
+              <path d="M9.50001 5.70834V13.2917M5.70834 9.50001H13.2917" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+              <linearGradient id="paint0_linear_18_60" x1="3" y1="2" x2="15" y2="17.5" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFA600"/>
+              <stop offset="1" stop-color="#FF4B3A"/>
+              </linearGradient>
+              </defs>
+              </svg>
+            </div>
+          </div>
         </div>
-      </section>
-
-      <!-- ข่าว -->
-      <section class="announcement">
-        <h2>ข่าวประชาสัมพันธ์</h2>
+      </div>
+      
+      <div class="all_menus">
+        <div class="all_menus_caption">
+          <h3>เมนูทั้งหมด</h3>
+          <p>ดูทั้งหมด</p>
+        </div>
+        <div class="menus">
+          <div class="menu">
+            <div>
+              <div class="menu_img"></div>
+              <div>
+                <h4>เมนูที่ 1</h4>
+                <p>เลือกไส้</p>
+                <p class="price">ราคา ฿</p>
+              </div>
+            </div>
+            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="9.4337" cy="9.4337" r="9.4337" fill="url(#paint0_linear_18_60)"/>
+            <path d="M9.50001 5.70834V13.2917M5.70834 9.50001H13.2917" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+            <linearGradient id="paint0_linear_18_60" x1="3" y1="2" x2="15" y2="17.5" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FFA600"/>
+            <stop offset="1" stop-color="#FF4B3A"/>
+            </linearGradient>
+            </defs>
+            </svg>
+          </div>
+          <hr>
+          <div class="menu">
+            <div>
+              <div class="menu_img"></div>
+              <div>
+                <h4>เมนูที่ 1</h4>
+                <p>เลือกไส้</p>
+                <p class="price">ราคา ฿</p>
+              </div>
+            </div>
+            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="9.4337" cy="9.4337" r="9.4337" fill="url(#paint0_linear_18_60)"/>
+            <path d="M9.50001 5.70834V13.2917M5.70834 9.50001H13.2917" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+            <linearGradient id="paint0_linear_18_60" x1="3" y1="2" x2="15" y2="17.5" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FFA600"/>
+            <stop offset="1" stop-color="#FF4B3A"/>
+            </linearGradient>
+            </defs>
+            </svg>
+          </div>
+          <hr>
+          <div class="menu">
+            <div>
+              <div class="menu_img"></div>
+              <div>
+                <h4>เมนูที่ 1</h4>
+                <p>เลือกไส้</p>
+                <p class="price">ราคา ฿</p>
+              </div>
+            </div>
+            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="9.4337" cy="9.4337" r="9.4337" fill="url(#paint0_linear_18_60)"/>
+            <path d="M9.50001 5.70834V13.2917M5.70834 9.50001H13.2917" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+            <linearGradient id="paint0_linear_18_60" x1="3" y1="2" x2="15" y2="17.5" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FFA600"/>
+            <stop offset="1" stop-color="#FF4B3A"/>
+            </linearGradient>
+            </defs>
+            </svg>
+          </div>
+          <hr>
+          <div class="menu">
+            <div>
+              <div class="menu_img"></div>
+              <div>
+                <h4>เมนูที่ 1</h4>
+                <p>เลือกไส้</p>
+                <p class="price">ราคา ฿</p>
+              </div>
+            </div>
+            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="9.4337" cy="9.4337" r="9.4337" fill="url(#paint0_linear_18_60)"/>
+            <path d="M9.50001 5.70834V13.2917M5.70834 9.50001H13.2917" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+            <linearGradient id="paint0_linear_18_60" x1="3" y1="2" x2="15" y2="17.5" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FFA600"/>
+            <stop offset="1" stop-color="#FF4B3A"/>
+            </linearGradient>
+            </defs>
+            </svg>
+          </div>
+          <hr>
+        </div>
+      </div>
+  
+      <div class="announcement">
+        <h3>ข่าวประชาสัมพันธ์</h3>
         <div class="poster_container">
-          <button class="nav prev" aria-label="ก่อนหน้า">‹</button>
-          <div class="poster" role="img" aria-label="โปสเตอร์ข่าว"></div>
-          <button class="nav next" aria-label="ถัดไป">›</button>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 18L9 12L15 6" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="poster"></div>
+          <svg style="transform: scaleX(-1)" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 18L9 12L15 6" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
-      </section>
-
+      </div>
+  
       <hr>
-      <footer class="end">
-        <p>สิ้นสุดหน้าฟีด!</p>
-        <img src="/public/IMAGE/Logo/TYICT Black.svg" alt="" width="100" height="100">
-        <p>เวอร์ชั่น 1.0.0</p>
+      <div class="end">
+      <p>สิ้นสุดหน้าฟีต!</p>
+        <img src="/public/IMAGE/Logo/TYICT Black.svg" width="100px" height="100px">
+        <p>เวอร์ชั่น 1.0.0 </p>
         <p>ติดต่อพวกเราโดยตรงที่: team@outlook.co.th</p>
         <p>ร้องเรียน, แจ้งปัญหาการใช้งานที่:</p>
         <p>ALL RIGHT RESERVED © TEAM2025</p>
-      </footer>
-    </section>
-  </main>
-
-  <!-- Toggle sidebar JS -->
-  <script>
-    const menuBtn = document.querySelector('.menu_icon');
-    const sidebar = document.querySelector('.sidebar');
-    const overlay = document.querySelector('.overlay');
-
-    function closeSide(){
-      sidebar.classList.remove('is-open');
-      overlay.classList.remove('is-show');
-    }
-    menuBtn && menuBtn.addEventListener('click', () => {
-      sidebar.classList.toggle('is-open');
-      overlay.classList.toggle('is-show');
-    });
-    overlay && overlay.addEventListener('click', closeSide);
-    window.addEventListener('resize', () => {
-      if (window.innerWidth >= 1024) closeSide();
-    });
-  </script>
+      </div>
+    </div>
+    <script src="/public/script/style/main.js"></script>
 </body>
 </html>

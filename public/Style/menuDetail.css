@@ -52,7 +52,7 @@ nav {
 }
 
 .img {
-    height: 180px;
+    height: max(230px, 35vw);
     width: 100%;
     background-color: #008CFF;
     border-radius: 7px;

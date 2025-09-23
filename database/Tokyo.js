@@ -5,6 +5,7 @@ const tokyoSchema = new mongoose.Schema({
     Flavor_tokyo: String,
     Description: String,
     Img_tokyo: Buffer,
+    Rating: Number
 })
 
 const Tokyo = mongoose.model('Tokyo', tokyoSchema);

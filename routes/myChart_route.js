@@ -4,8 +4,8 @@ const path = require('path')
 
 require('../connectDB')
 
-router.all('/main', (req, res) => {
-    res.render('Main');
+router.get('/chart', (req, res) => {
+    res.render('myChart')
 })
 
-module.exports = router;
+module.exports = router

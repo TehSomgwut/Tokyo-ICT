@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>history</title>
-    <link rel="stylesheet" href="/public/Style/history.css">
+    <link rel="stylesheet" href="Style/history.css">
 </head>
 <body>
     <nav>
@@ -19,7 +19,7 @@
         <div class="recently_container">
             <div class="detail">
                 <p class="date"><%= recent_order.time.date %>, <%= recent_order.time.time %>น.</p>
-                <p>รายการอาหารที่: <%= recent_order.queue %> / จำนวน: <%= recent_order.amount %></p>
+                <p><%= recent_order.name %> / จำนวน: <%= recent_order.amount %></p>
                 <div>
                     <p><a><u><%= recent_order.status.price %></u></a></p>
                     <p  class="recently_price">฿<%= recent_order.price %></p>

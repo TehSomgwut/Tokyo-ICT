@@ -2,9 +2,9 @@ const mongoose = require('../connectDB');
 
 const customerSchema = new mongoose.Schema({
     Cusname: String,
-    CusGmail: {type: String, unique: true, request: true},
-    Password: String,
-    Img_profile: Buffer,
+    CusGmail: {type: String, unique: true, required: true},
+    Password: {type: String, unique: true, required: true},
+    Img_profile: String,
     Status: String,
     Current_order: [
         {

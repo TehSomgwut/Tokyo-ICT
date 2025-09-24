@@ -2,9 +2,9 @@ const mongoose = require('../connectDB');
 
 const sellerSchema = new mongoose.Schema({
     sellname: String,
-    sellGmail: {type: String, unique: true, require: true},
-    Password: {type: String, unique: true, require: true},
-    Img_profile: Buffer,
+    sellGmail: {type: String, unique: true, required: true},
+    Password: {type: String, unique: true, required: true},
+    Img_profile: String,
     Status: String,
 })
 

@@ -4,7 +4,7 @@ const tokyoSchema = new mongoose.Schema({
     Price_tokyo: Number,
     Flavor_tokyo: String,
     Description: String,
-    Img_tokyo: Buffer,
+    Img_tokyo: String,
     Rating: Number
 })
 

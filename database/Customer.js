@@ -2,29 +2,29 @@ const mongoose = require('../connectDB');
 
 const customerSchema = new mongoose.Schema({
     Cusname: String,
-    CusGmail: {type: String, unique: true, required: true},
-    Password: {type: String, unique: true, required: true},
-    Img_profile: String,
+    CusGmail: {type: String, unique: true, request: true},
+    Password: String,
+    Img_profile: Buffer,
     Status: String,
     Current_order: [
         {
-            Order_name: String,
-            Order_price: Number,
-            Money_state: String,
+            order_name: String,
+            order_price: Number,
+            money_state: String,
             quantity: Number,
-            State: String,
-            Total_price: Number,
+            state: String,
+            total_price: Number,
         }
     ],
     History_order: [
         {
-            Order_date: Date,
-            order_name: Number,
+            order_date: { type: Date, default: Date.now },
+            order_name: String,
             quantity: Number,
         }
     ]
-})
+});
 
-const Customer = mongoose.model('Customer', customerShema);
+const Customer = mongoose.model('Customer', customerSchema);
 
 module.exports = Customer;

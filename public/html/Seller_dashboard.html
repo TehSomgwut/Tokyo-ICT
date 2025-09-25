@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/public/Style/Seller_dashboard.css">
+  </head>
+  <body>
+    <nav>
+      <div class="top">
+        <img src="/public/IMAGE/Logo/TYICT White.svg" />
+        <hr />
+        <h3>ระบบจัดการร้านโตเกียว ICT</h3>
+      </div>
+
+      <div class="status">
+        <p>สถานะร้าน:</p>
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider"></span>
+        </label>
+        <p>เปิด</p>
+      </div>
+
+      <div class="choice">
+        <div class="options" id="option_dashboard">
+            <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.7559 21.2113L14.9082 15.8146L19.6446 19.5352L23.708 14.2908" stroke="#ED3333" stroke-width="2.08092" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="28.4444" cy="6.53221" r="2.66662" stroke="#ED3333" stroke-width="2.08092" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21.4097 5.03381H11.3273C7.14964 5.03381 4.5592 7.99249 4.5592 12.1702V23.3827C4.5592 27.5604 7.09884 30.5064 11.3273 30.5064H23.2637C27.4414 30.5064 30.0318 27.5604 30.0318 23.3827V13.6178" stroke="#ED3333" stroke-width="2.08092" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
+            <h3>แดชบอร์ด</h3>
+        </div>
+        <a href="/public/html/Seller_order_list.html"><div class="options" id="option_order">
+            <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M24.1028 31.1667H12.2767C7.93269 31.1667 4.60012 29.5977 5.54673 23.2826L6.64894 14.7243C7.23246 11.5732 9.24238 10.3673 11.0059 10.3673H25.4254C27.2149 10.3673 29.1081 11.664 29.7824 14.7243L30.8846 23.2826C31.6886 28.8845 28.4468 31.1667 24.1028 31.1667Z" stroke="white" stroke-width="2.125" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M24.2973 10.0561C24.2973 6.67582 21.5571 3.93557 18.1768 3.93557V3.93557C16.549 3.92867 14.9856 4.57047 13.8322 5.71903C12.6787 6.8676 12.0303 8.42832 12.0303 10.0561H12.0303" stroke="white" stroke-width="2.125" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M22.3782 16.436H22.3133" stroke="white" stroke-width="2.125" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14.1181 16.436H14.0533" stroke="white" stroke-width="2.125" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3>ออเดอร์</h3>
+        </div></a>
+        <a href="/public/html/Seller_manipulation.html"><div class="options" id="option_menu">
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24.3969 25.1843H13.189" stroke="white" stroke-width="2.06979" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M24.3969 18.6854H13.189" stroke="white" stroke-width="2.06979" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M17.4659 12.2016H13.1892" stroke="white" stroke-width="2.06979" stroke-linecap="round" stroke-linejoin="round"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M24.6956 4.26862C24.6956 4.26862 12.7783 4.27483 12.7596 4.27483C8.47516 4.30121 5.8222 7.12027 5.8222 11.4203V25.6956C5.8222 30.0173 8.49534 32.8472 12.8171 32.8472C12.8171 32.8472 24.7328 32.8426 24.753 32.8426C29.0375 32.8162 31.692 29.9956 31.692 25.6956V11.4203C31.692 7.09854 29.0173 4.26862 24.6956 4.26862Z" stroke="white" stroke-width="2.06979" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3>จัดการเมนู</h3>
+        </div></a>
+      </div>
+      <p><a href="#">ออกจากระบบ</a></p>
+    </nav>
+
+    <div class="container">
+        <div class="dashboard_top">
+            <h2>แดชบอร์ด</h2>
+            <div class="admin_profile">
+                <p>ชื่อแอดมิน</p>
+                <svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect y="7.62939e-06" width="55" height="55" rx="27.5" fill="#FFD4D0"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M35.7503 22C35.7503 26.5564 32.0567 30.25 27.5003 30.25C22.944 30.25 19.2503 26.5564 19.2503 22C19.2503 17.4437 22.944 13.75 27.5003 13.75C32.0567 13.75 35.7503 17.4437 35.7503 22ZM33.0003 22C33.0003 25.0376 30.5379 27.5 27.5003 27.5C24.4628 27.5 22.0003 25.0376 22.0003 22C22.0003 18.9624 24.4628 16.5 27.5003 16.5C30.5379 16.5 33.0003 18.9624 33.0003 22Z" fill="#FF0000"/>
+                <path d="M27.5003 34.375C18.5981 34.375 11.0131 39.6391 8.12378 47.0141C8.82764 47.713 9.56909 48.3741 10.3449 48.9941C12.4964 42.2231 19.2458 37.125 27.5003 37.125C35.7549 37.125 42.5043 42.2231 44.6558 48.9941C45.4316 48.3741 46.173 47.713 46.8769 47.0141C43.9876 39.6391 36.4026 34.375 27.5003 34.375Z" fill="#FF0000"/>
+                </svg>
+            </div>
+        </div>
+        <div class="informations">
+            <div class="data" id="Revenue">
+                <p class="bold">ยอดขายวันนี้ :</p>
+                <p>อา. 6 กรกฎาคม</p>
+                <h1>฿550</h1>
+            </div>
+            <div class="data" id="total">
+                <p class="bold">รายงานทั้งหมดวันนี้ :</p>
+                <p>อา. 6 กรกฎาคม</p>
+                <h1>#16</h1>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>

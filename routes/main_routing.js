@@ -5,7 +5,7 @@ const path = require('path')
 require('../connectDB')
 
 router.all('/main', (req, res) => {
-    res.render('main');
+    res.render('Main');
 })
 
 module.exports = router;

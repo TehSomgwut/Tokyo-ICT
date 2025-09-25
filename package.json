@@ -18,8 +18,11 @@
   "homepage": "https://github.com/TehSomgwut/Tokyo-ICT#readme",
   "dependencies": {
     "axios": "^1.12.2",
+    "cookie-parser": "^1.4.7",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "formidable": "^3.5.4",
     "mongoose": "^8.18.1",
     "nodemon": "^3.1.10"
   }

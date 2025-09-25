@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/public/Style/Seller_order_list.css">
+  </head>
+  <body>
+    <nav>
+      <div class="top">
+        <img src="/public/IMAGE/Logo/TYICT White.svg" />
+        <hr />
+        <h3>ระบบจัดการร้านโตเกียว ICT</h3>
+      </div>
+
+      <div class="status">
+        <p>สถานะร้าน:</p>
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider"></span>
+        </label>
+        <p>เปิด</p>
+      </div>
+
+      <div class="choice">
+        <a href="/public/html/Seller_dashboard.html"><div class="options" id="option_dashboard">
+            <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.7559 21.2113L14.9082 15.8146L19.6446 19.5351L23.708 14.2908" stroke="white" stroke-width="2.08092" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="28.4444" cy="6.53222" r="2.66662" stroke="white" stroke-width="2.08092" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21.4097 5.03381H11.3273C7.14964 5.03381 4.5592 7.99249 4.5592 12.1702V23.3827C4.5592 27.5604 7.09884 30.5064 11.3273 30.5064H23.2637C27.4414 30.5064 30.0318 27.5604 30.0318 23.3827V13.6178" stroke="white" stroke-width="2.08092" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3>แดชบอร์ด</h3>
+        </div></a>
+        <div class="options" id="option_order">
+            <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M24.1028 31.1667H12.2767C7.93269 31.1667 4.60012 29.5977 5.54673 23.2826L6.64894 14.7243C7.23246 11.5733 9.24238 10.3673 11.0059 10.3673H25.4254C27.2149 10.3673 29.1081 11.664 29.7824 14.7243L30.8846 23.2826C31.6886 28.8845 28.4468 31.1667 24.1028 31.1667Z" stroke="#ED3333" stroke-width="2.125" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M24.2973 10.0561C24.2973 6.67585 21.5571 3.9356 18.1768 3.9356V3.9356C16.549 3.9287 14.9856 4.5705 13.8322 5.71907C12.6787 6.86763 12.0303 8.42835 12.0303 10.0561H12.0303" stroke="#ED3333" stroke-width="2.125" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M22.3782 16.436H22.3133" stroke="#ED3333" stroke-width="2.125" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14.1181 16.436H14.0533" stroke="#ED3333" stroke-width="2.125" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3>ออเดอร์</h3>
+        </div>
+        <a href="/public/html/Seller_manipulation.html"><div class="options" id="option_menu">
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24.3969 25.1844H13.189" stroke="white" stroke-width="2.06979" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M24.3969 18.6855H13.189" stroke="white" stroke-width="2.06979" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M17.4659 12.2016H13.1892" stroke="white" stroke-width="2.06979" stroke-linecap="round" stroke-linejoin="round"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M24.6956 4.26868C24.6956 4.26868 12.7783 4.27489 12.7596 4.27489C8.47516 4.30128 5.8222 7.12033 5.8222 11.4203V25.6957C5.8222 30.0174 8.49534 32.8473 12.8171 32.8473C12.8171 32.8473 24.7328 32.8426 24.753 32.8426C29.0375 32.8163 31.692 29.9957 31.692 25.6957V11.4203C31.692 7.0986 29.0173 4.26868 24.6956 4.26868Z" stroke="white" stroke-width="2.06979" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3>จัดการเมนู</h3>
+        </div></a>
+      </div>
+      <p><a href="#">ออกจากระบบ</a></p>
+    </nav>
+
+    <div class="container">
+        <h2>รายการคำสั่งซื้อ</h2>
+        <div class="sort">
+            <div class="text">
+                <p>ทั้งหมด</p>
+                <p>ล่าสุด</p>
+                <p>สำเร็จ</p>
+                <p>ยกเลิก</p>
+            </div>
+            <hr>
+        </div>
+        <div class="order">
+            <div class="text">
+                <p class="order_number">หมายเลขออเดอร์: 0002 <span class="status_order"></span></p>
+                <p>รายการอาหารที่ 1 จำนวน 1 ราคา: 10</p>
+                <p>รายการอาหารที่ 2 จำนวน 3 ราคา: 30</p>
+                <p>รายการอาหารที่ 3 จำนวน 1 ราคา: 10</p>
+                <div class="node">
+                    <div class="remark">หมายเหตุ *ไม่มี</div>
+                </div>
+                <p class="total_price">ราคารวมทั้งสิ้น: 50 ฿ - จ่ายหน้าร้าน</p>
+            </div>
+            <div class="marker">
+                <div class="check">
+                    <svg width="77" height="75" viewBox="0 0 77 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M56.1385 24.7837L30.3223 50.5999L18.5876 38.8653" stroke="white" stroke-width="4.64692" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <p>เสร็จแล้ว</p>
+                </div>
+                <div class="cancel">
+                    <svg width="63" height="63" viewBox="0 0 63 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M44.9308 15.5874L15.5876 44.9306" stroke="black" stroke-width="5.19583" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15.5876 15.5874L44.9308 44.9306" stroke="black" stroke-width="5.19583" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <p>ยกเลิก</p>
+                </div>
+            </div>
+        </div>
+        <div class="order">
+            <div class="text">
+                <p class="order_number">หมายเลขออเดอร์: 0002 <span class="status_order"></span></p>
+                <p>รายการอาหารที่ 1 จำนวน 1 ราคา: 10</p>
+                <p>รายการอาหารที่ 2 จำนวน 3 ราคา: 30</p>
+                <p>รายการอาหารที่ 3 จำนวน 1 ราคา: 10</p>
+                <div class="node">
+                    <div class="remark">หมายเหตุ *ไม่มี</div>
+                </div>
+                <p class="total_price">ราคารวมทั้งสิ้น: 50 ฿ - จ่ายหน้าร้าน</p>
+            </div>
+            <div class="marker">
+                <div class="check">
+                    <svg width="77" height="75" viewBox="0 0 77 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M56.1385 24.7837L30.3223 50.5999L18.5876 38.8653" stroke="white" stroke-width="4.64692" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <p>เสร็จแล้ว</p>
+                </div>
+                <div class="cancel">
+                    <svg width="63" height="63" viewBox="0 0 63 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M44.9308 15.5874L15.5876 44.9306" stroke="black" stroke-width="5.19583" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15.5876 15.5874L44.9308 44.9306" stroke="black" stroke-width="5.19583" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <p>ยกเลิก</p>
+                </div>
+            </div>
+        </div>
+        <div class="order">
+            <div class="text">
+                <p class="order_number">หมายเลขออเดอร์: 0002 <span class="status_order"></span></p>
+                <p>รายการอาหารที่ 1 จำนวน 1 ราคา: 10</p>
+                <p>รายการอาหารที่ 2 จำนวน 3 ราคา: 30</p>
+                <p>รายการอาหารที่ 3 จำนวน 1 ราคา: 10</p>
+                <div class="node">
+                    <div class="remark">หมายเหตุ *ไม่มี</div>
+                </div>
+                <p class="total_price">ราคารวมทั้งสิ้น: 50 ฿ - จ่ายหน้าร้าน</p>
+            </div>
+            <div class="marker">
+                <div class="check">
+                    <svg width="77" height="75" viewBox="0 0 77 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M56.1385 24.7837L30.3223 50.5999L18.5876 38.8653" stroke="white" stroke-width="4.64692" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <p>เสร็จแล้ว</p>
+                </div>
+                <div class="cancel">
+                    <svg width="63" height="63" viewBox="0 0 63 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M44.9308 15.5874L15.5876 44.9306" stroke="black" stroke-width="5.19583" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15.5876 15.5874L44.9308 44.9306" stroke="black" stroke-width="5.19583" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <p>ยกเลิก</p>
+                </div>
+            </div>
+        </div>
+        <div class="order">
+            <div class="text">
+                <p class="order_number">หมายเลขออเดอร์: 0002 <span class="status_order"></span></p>
+                <p>รายการอาหารที่ 1 จำนวน 1 ราคา: 10</p>
+                <p>รายการอาหารที่ 2 จำนวน 3 ราคา: 30</p>
+                <p>รายการอาหารที่ 3 จำนวน 1 ราคา: 10</p>
+                <div class="node">
+                    <div class="remark">หมายเหตุ *ไม่มี</div>
+                </div>
+                <p class="total_price">ราคารวมทั้งสิ้น: 50 ฿ - จ่ายหน้าร้าน</p>
+            </div>
+            <div class="marker">
+                <div class="check">
+                    <svg width="77" height="75" viewBox="0 0 77 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M56.1385 24.7837L30.3223 50.5999L18.5876 38.8653" stroke="white" stroke-width="4.64692" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <p>เสร็จแล้ว</p>
+                </div>
+                <div class="cancel">
+                    <svg width="63" height="63" viewBox="0 0 63 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M44.9308 15.5874L15.5876 44.9306" stroke="black" stroke-width="5.19583" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15.5876 15.5874L44.9308 44.9306" stroke="black" stroke-width="5.19583" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <p>ยกเลิก</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Upload Image</h1>
+    <form enctype="multipart/form-data">
+        <input type="file" name="img" required>
+        <button type="submit" onclick="send()">Upload</button>
+    </form>
+    <div id="result">
+    </div>
+    <script src="/axios/axios.min.js"></script>
+    <script>
+        function send(){
+            event.preventDefault();
+            const form = document.querySelector('form');
+            const formData = new FormData(form);
+            axios({
+                method: 'post',
+                url: '/uploadIMG',
+                data: formData,
+                timeout: 10000
+            })
+            .then(res => {
+                console.log(res.data);
+            })
+            .catch(err => {
+                console.error(err);
+            });
+        }
+    </script>
+</body>
+</html>

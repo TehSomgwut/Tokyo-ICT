@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    transition: 250ms;
+}
+
+:root {
+    --main-colors: #ED3333;
+    --sub-colors: #ECECEC;
+}
+
+html, input, button {
+    font-family: Prompt;
+}
+
+
+img {
+    width: 65px;
+    height: 65px;
+}
+
+svg {
+    width: 27px;
+    height: 27px;
+}
+
+
+.switch {
+    --button-width: 45px;
+    --button-height: 27px;
+    --toggle-diameter: 1.2em;
+    --button-toggle-offset: calc((var(--button-height) - var(--toggle-diameter)) / 2);
+    --toggle-shadow-offset: 10px;
+    --toggle-wider: 3em;
+    --color-grey: #cccccc;
+    --color-green: #51f442;
+}
+
+.slider {
+    display: inline-block;
+    width: var(--button-width);
+    height: var(--button-height);
+    background-color: var(--color-grey);
+    border-radius: calc(var(--button-height) / 2);
+    position: relative;
+    transition: 0.3s all ease-in-out;
+}
+
+.slider::after {
+    content: "";
+    display: inline-block;
+    width: var(--toggle-diameter);
+    height: var(--toggle-diameter);
+    background-color: #fff;
+    border-radius: calc(var(--toggle-diameter) / 2);
+    position: absolute;
+    top: var(--button-toggle-offset);
+    transform: translateX(var(--button-toggle-offset));
+    box-shadow: var(--toggle-shadow-offset) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
+    transition: 0.3s all ease-in-out;
+}
+
+.switch input[type="checkbox"]:checked + .slider {
+    background-color: var(--color-green);
+}
+
+.switch input[type="checkbox"]:checked + .slider::after {
+    transform: translateX(calc(var(--button-width) - var(--toggle-diameter) - var(--button-toggle-offset)));
+    box-shadow: calc(var(--toggle-shadow-offset) * -1) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
+}
+
+.switch input[type="checkbox"] {
+    display: none;
+}
+
+.switch input[type="checkbox"]:active + .slider::after {
+    width: var(--toggle-wider);
+}
+
+.switch input[type="checkbox"]:checked:active + .slider::after {
+    transform: translateX(calc(var(--button-width) - var(--toggle-wider) - var(--button-toggle-offset)));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    display:flex;
+}
+nav {
+    background-color: var(--main-colors);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: max(200px, 30%);
+    padding: 15px 5px 5px 15px;
+    align-items: center;
+    height: 100vh;
+    top: 0;
+    position: sticky;
+
+    .top {
+        display: flex;
+        gap: 20px;
+        flex-wrap:nowrap;
+        color: white;
+        font-size: 1.2em;
+        h3 {
+            font-weight: 500;
+        }
+    }
+
+    .status {
+        display: flex;
+        gap: 10px;
+        color: white;
+    }
+    .choice {
+        display: flex;
+        width: 90%;
+        flex-direction: column;
+        gap: 20px;
+        .options {
+            color: white;
+            display: flex;
+            border: 1px solid white;
+            gap: 10px;
+            border-radius: 7px;
+            box-sizing: border-box;
+            padding: 5px;
+            height: 50px;
+            align-items: center;
+            h3 {
+                font-weight: 450;
+            }
+        }
+        #option_menu {
+            background-color: white;
+            border: 1px solid var(--main-colors);
+            color: var(--main-colors);
+        }
+    }
+    a {
+        color: white;
+        text-decoration: underline;
+    }
+}
+
+.container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+    .top {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        .text {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+        button {
+            outline: none;
+            border: none;
+            background-color: var(--main-colors);
+            height: 50px;
+            border-radius: 5px;
+            color: white;
+            box-sizing: border-box;
+            font-size: 1.3em;
+        }
+    }
+
+    .menus {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .menu {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: var(--sub-colors);
+            border-radius: 7px;
+            .img {
+                width: 30%;
+                background-color: #008CFF;
+                border-radius: 7px;
+            }
+            .detail {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                .tag {
+                    display: flex;
+                    gap: 10px;
+                    background-color: transparent;
+                    border: 1px solid var(--main-colors);
+                    padding: 5px;
+                    color: var(--main-colors);
+                    border-radius: 5px;
+                    align-items: center;
+                    justify-content: center;
+                    width: fit-content;
+                    svg {
+                        height: 17px;
+                        width: 17px;
+                    }
+                    p {
+                        font-size: 0.8em;
+                    }
+                }
+                .name {
+                    font-size: 1.3em;
+                    font-weight: 600;
+                }
+                .menu_detail {
+                    font-size: 0.8em;
+                    font-weight: 300;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    width: 100%;
+                }
+                p span {
+                    color: var(--main-colors);
+                    font-weight: 800;
+                }
+            }
+            .marker {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+                .edit, .delete {
+                    box-sizing: border-box;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 10px;
+                    gap: 10px;
+                    border-radius: 7px;
+                    height: 45%;
+                    width:100%;
+                }
+                .edit {
+                    background-color: var(--main-colors);
+                    color: white;
+
+                }
+                .delete {
+                    background-color: transparent;
+                    border: 1px solid var(--main-colors);
+                    color: var(--main-colors)
+                }
+            }
+        }
+    }
+}

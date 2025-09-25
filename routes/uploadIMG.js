@@ -10,16 +10,7 @@ router.get('/uploadIMG', (req, res) => {
 
 router.post('/uploadIMG', async (req, res) => {
     const form = new formidable.IncomingForm();
-    form.parse(req, (err, fields, files) => {
-        if (err) {
-            return res.status(400).send("Error parsing the files");
-        }
-
-        let upfile = files.upfile
-        let dir = 'public/upload/'
-        let newfile = dir + upfile.name
-
-    })
+    form.parse()
 })
 
 module.exports = router;

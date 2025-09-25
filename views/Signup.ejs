@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="button_container">
-                    <button type="submit">เข้าสู่ระบบ</button>
+                    <button type="submit" onclick="send(event)">เข้าสู่ระบบ</button>
                     <p>โอ้ ฉันมีบัญชีแล้ว <u><a href="/login">เข้าสู่ระบบ</a> ที่นี่</u></p>
                 </div>
             </form>
@@ -73,5 +73,35 @@
         </div>
     </div>
     <script src="/script/style/signup.js"></script>
+    <script src="/axios/axios.min.js"></script>
+    <script>
+        function send(event) {
+            event.preventDefault();
+            const email = document.getElementById('email_input').value;
+            const password = document.getElementById('password_input').value;
+            const password2 = document.getElementById('password_input2').value;
+            if (!email || !password || !password2) {
+                alert('กรอกข้อมูลให้ครบสิ');
+                return;
+            }
+            if (password !== password2) {
+                alert('รหัสผ่านไม่ตรงกัน');
+                return;
+            }
+            axios({
+                method: 'post',
+                url: '/signup',
+                data: {
+                    email: email,
+                    password: password
+                },
+                setTimeout: 3000
+            }).then((res) => {
+                window.location.href = '/login';
+            }).catch((err) => {
+                alert('คุณอาจมีบัญชีแล้ว ลองเข้าสู่ระบบดูสิ');
+            });
+        }
+    </script>
 </body>
 </html>

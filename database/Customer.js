@@ -1,7 +1,7 @@
 const mongoose = require('../connectDB');
 
 const customerSchema = new mongoose.Schema({
-    Cusname: { type: String, required: true },
+    Cusname: { type: String },
     CusGmail: { type: String, unique: true, required: true },
     Password: { type: String, required: true },
     Img_profile: Buffer, // หรือเก็บเป็น String (URL) ก็ได้

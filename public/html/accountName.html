@@ -36,32 +36,42 @@
 
         <section class="edit_container">
             <hr>
-            <div class="form_group">
-                <p>ชื่อ</p>
-                <input type="text" name="user_name" placeholder="ชื่อที่ต้องการให้แสดง">
-                <a href="#" class="edit_name">แก้ไข</a>
+            <div class="detail">
+                <div class="form_group">
+                    <div class="column_detail">
+                        <p>ชื่อ</p>
+                        <p><a href="#" class="edit_name">แก้ไขชื่อ</a></p>
+                    </div>
+                    <input type="text" name="user_name" placeholder="ชื่อที่ต้องการให้แสดง">
+                </div>
             </div>
 
-            <div class="form_group">
-                <p>อีเมล</p>
-                <input type="gmail" name="user_email" placeholder="example@gmail.com">
-                <a href="#" class="edit_name">แก้ไขอีเมล</a>
-            </div>
+            <div class="detail">
+                <div class="form_group">
+                    <div class="column_detail">
+                        <p>อีเมล</p>
+                        <p><a href="#" class="edit_email">แก้ไขอีเมล</a></p>
+                    </div>
+                    <input type="gmail" name="user_email" placeholder="example@gmail.com">
+                </div>
 
-            <div class="button_container">
-               <button type="submit">บันทึก</button> 
+                <div class="button_container">
+                <button type="submit">บันทึก</button> 
+                </div>
             </div>
             <hr>
         </section>
         
         <div>
-            <a href="#">ตั้งรหัสผ่านใหม่</a>
+            <div>
+                <a href="#">ตั้งรหัสผ่านใหม่</a>
+            </div>
+            <div> 
+                <a href="#">ลบบัญชี</a>
+            </div>
         </div>
-        <div> 
-            <a href="#">ลบบัญชี</a>
-        </div>
-
-        <footer>
+        
+        <footer class="ref">
             <p>refresh</p>
         </footer>
         

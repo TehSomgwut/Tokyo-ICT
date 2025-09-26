@@ -2,15 +2,15 @@ const mongoose = require('../connectDB');
 
 const customerSchema = new mongoose.Schema({
     Cusname: String,
-    CusGmail: {type: String, unique: true, request: true},
+    CusGmail: {type: String, unique: true, required: true},
     Password: String,
-    Img_profile: Buffer,
+    Img_profile: String,
     Status: String,
     Current_order: [
         {
             order_name: String,
             order_price: Number,
-            money_state: String,
+            money_state: String,  
             quantity: Number,
             state: String,
             total_price: Number,

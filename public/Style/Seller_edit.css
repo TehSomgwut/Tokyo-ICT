@@ -102,7 +102,7 @@ nav {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    width: max(200px, 30%);
+    width: max(200px, 30%); 
     padding: 15px 5px 5px 15px;
     align-items: center;
     height: 100vh;
@@ -195,7 +195,6 @@ input {
     }
     .pcat {
         display: flex;
-        flex-grow: 1;
         width: 100%;
         gap: 10px;
         .price, .cat {

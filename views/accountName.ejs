@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Style/account.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="#" class="back button" ></a>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.9999 18L8.99994 12L14.9999 6" stroke="black" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            </a>
+            <h1>บัญชีของฉัน</h1>
+        </header>
+        <section class="profile">
+            <div class="avatar_container">
+                <img src=<%= detail.Img_profile %> class="avatar">
+                
+                </img>
+                <p><a href="#">แก้ไขรูปโปรไฟล์</a></p>
+            </div>
+            <div class="user_details">
+                <h2><%= detail.Cusname %></h2>
+                <p>ID:<%= detail.CusID %></p>
+                <p>เชื่อมกับบัญชี: Google Account </p>
+            </div>
+        </section>
+
+        <section class="edit_container">
+            <hr>
+            <div class="detail">
+                <div class="form_group">
+                    <div class="column_detail">
+                        <p>ชื่อ</p>
+                        <p><a href="#" class="edit_name">แก้ไขชื่อ</a></p>
+                    </div>
+                    <input type="text" name="user_name" placeholder="ชื่อที่ต้องการให้แสดง">
+                </div>
+            </div>
+
+            <div class="detail">
+                <div class="form_group">
+                    <div class="column_detail">
+                        <p>อีเมล</p>
+                        <p><a href="#" class="edit_email">แก้ไขอีเมล</a></p>
+                    </div>
+                    <input type="gmail" name="user_email" placeholder="example@gmail.com">
+                </div>
+
+                <div class="button_container">
+                <button type="submit">บันทึก</button> 
+                </div>
+            </div>
+            <hr>
+        </section>
+        
+        <div>
+            <div>
+                <a href="#">ตั้งรหัสผ่านใหม่</a>
+            </div>
+            <div> 
+                <a href="#">ลบบัญชี</a>
+            </div>
+        </div>
+        
+        <footer class="ref">
+            <p>refresh</p>
+        </footer>
+        
+    </div>
+</body>
+</html>

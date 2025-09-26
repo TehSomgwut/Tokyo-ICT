@@ -1,16 +1,26 @@
-const express = require('express');
-const router = express.Router();
-const formidable = require('formidable');
-const path = require('path');
-const fs = require('fs');
+const express = require("express");
+const path = require("path");
+const multer = require("multer")
 
-router.get('/uploadIMG', (req, res) => {
+const router = express.Router();
+target = path.join(__dirname, '../public/uploads/')
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, target)
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname)
+    }
+})
+
+const upload = multer({ storage })
+
+router.get('/upload', (req, res) => {
     res.render('uploadIMAGE')
 })
 
-router.post('/uploadIMG', async (req, res) => {
-    const form = new formidable.IncomingForm();
-    form.parse()
+router.post('/upload',upload.single('img'), (req, res) => {
+    res.send("Uploaded successfully")
 })
 
 module.exports = router;

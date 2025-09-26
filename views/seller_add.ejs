@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/public/Style/Seller_edit.css">
+    <link rel="stylesheet" href="Style/Seller_edit.css">
 </head>
 <body>
     <nav>
       <div class="top">
-        <img src="/public/IMAGE/Logo/TYICT White.svg" />
-        <hr/>
+        <img src="IMAGE/Logo/TYICT White.svg" />
+        <hr />
         <h3>ระบบจัดการร้านโตเกียว ICT</h3>
       </div>
 
@@ -20,7 +20,7 @@
           <input type="checkbox" />
           <span class="slider"></span>
         </label>
-        <p>เปิด</p>
+        <p><%= seller_add.Store_status %></p>
       </div>
 
       <div class="choice">
@@ -145,7 +145,7 @@
     </nav>
 
     <form class="container" enctype="multipart/form-data">
-        <h2>แก้ไขเมนู</h2>
+        <h2>เพิ่มเมนูอาหาร</h2>
         <div class="name">
             <div class="text">
                 <h4>ชื่อ</h4>
@@ -192,29 +192,9 @@
                 </div>
             </div>
         </div>
-        <button>บันทึกการแก้ไข</button>
-        <div class="etc">
-            <div class="delete">
-                <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_560_195)">
-                <mask id="mask0_560_195" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="-1" y="-2" width="37" height="37">
-                <rect x="-0.5" y="-1.5" width="36" height="36" fill="#D9D9D9"/>
-                </mask>
-                <g mask="url(#mask0_560_195)">
-                <path d="M10 30C9.175 30 8.46875 29.7063 7.88125 29.1188C7.29375 28.5312 7 27.825 7 27V7.5H5.5V4.5H13V3H22V4.5H29.5V7.5H28V27C28 27.825 27.7063 28.5312 27.1188 29.1188C26.5312 29.7063 25.825 30 25 30H10ZM25 7.5H10V27H25V7.5ZM13 24H16V10.5H13V24ZM19 24H22V10.5H19V24Z" fill="black"/>
-                </g>
-                </g>
-                <defs>
-                <clipPath id="clip0_560_195">
-                <rect width="34" height="34" fill="white" transform="translate(0.5 0.5)"/>
-                </clipPath>
-                </defs>
-                </svg>
-                <p>ลบเมนู</p>
-            </div>
-            <div class="cancel">
-                <p>ยกเลิกการแก้ไข</p>
-            </div>
+        <div class="save">
+            <button>บันทึกเมนู</button>
+                <button class="cancel">ยกเลิก</button>
         </div>
     </form>
 </body>

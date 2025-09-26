@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Style/Seller_edit.css">
+</head>
+<body>
+    <nav>
+      <div class="top">
+        <img src="/IMAGE/Logo/TYICT White.svg" />
+        <hr/>
+        <h3>ระบบจัดการร้านโตเกียว ICT</h3>
+      </div>
+
+      <div class="status">
+        <p>สถานะร้าน:</p>
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider"></span>
+        </label>
+        <p><%= seller_edit.Store_status %></p>
+      </div>
+
+      <div class="choice">
+        <a href="/public/html/Seller_dashboard.html"><div class="options" id="option_dashboard">
+          <svg
+            width="34"
+            height="34"
+            viewBox="0 0 34 34"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10.7559 21.2113L14.9082 15.8146L19.6446 19.5351L23.708 14.2908"
+              stroke="white"
+              stroke-width="2.08092"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <circle
+              cx="28.4444"
+              cy="6.5321"
+              r="2.66662"
+              stroke="white"
+              stroke-width="2.08092"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M21.4097 5.03369H11.3273C7.14964 5.03369 4.5592 7.99237 4.5592 12.1701V23.3826C4.5592 27.5603 7.09884 30.5063 11.3273 30.5063H23.2637C27.4414 30.5063 30.0318 27.5603 30.0318 23.3826V13.6177"
+              stroke="white"
+              stroke-width="2.08092"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <h3>แดชบอร์ด</h3>
+        </div></a>
+        <a href="/public/html/Seller_order_list.html"><div class="options" id="option_order">
+          <svg
+            width="34"
+            height="34"
+            viewBox="0 0 34 34"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M24.1028 31.1668H12.2767C7.93269 31.1668 4.60012 29.5978 5.54673 23.2828L6.64894 14.7244C7.23246 11.5734 9.24238 10.3674 11.0059 10.3674H25.4254C27.2149 10.3674 29.1081 11.6642 29.7824 14.7244L30.8846 23.2828C31.6886 28.8846 28.4468 31.1668 24.1028 31.1668Z"
+              stroke="white"
+              stroke-width="2.125"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M24.2973 10.0561C24.2973 6.67585 21.5571 3.9356 18.1768 3.9356V3.9356C16.549 3.9287 14.9856 4.5705 13.8322 5.71907C12.6787 6.86763 12.0303 8.42835 12.0303 10.0561H12.0303"
+              stroke="white"
+              stroke-width="2.125"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M22.3782 16.436H22.3133"
+              stroke="white"
+              stroke-width="2.125"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M14.1181 16.436H14.0533"
+              stroke="white"
+              stroke-width="2.125"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <h3>ออเดอร์</h3>
+        </div></a>
+        <div class="options" id="option_menu">
+          <svg
+            width="38"
+            height="38"
+            viewBox="0 0 38 38"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M24.3969 25.1841H13.189"
+              stroke="#ED3333"
+              stroke-width="2.06979"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M24.3969 18.6854H13.189"
+              stroke="#ED3333"
+              stroke-width="2.06979"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M17.4659 12.2015H13.1892"
+              stroke="#ED3333"
+              stroke-width="2.06979"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M24.6956 4.26855C24.6956 4.26855 12.7783 4.27476 12.7596 4.27476C8.47516 4.30115 5.8222 7.12021 5.8222 11.4202V25.6955C5.8222 30.0173 8.49534 32.8472 12.8171 32.8472C12.8171 32.8472 24.7328 32.8425 24.753 32.8425C29.0375 32.8161 31.692 29.9955 31.692 25.6955V11.4202C31.692 7.09848 29.0173 4.26855 24.6956 4.26855Z"
+              stroke="#ED3333"
+              stroke-width="2.06979"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <h3>จัดการเมนู</h3>
+        </div>
+      </div>
+      <p><a href="#">ออกจากระบบ</a></p>
+    </nav>
+
+    <form class="container" enctype="multipart/form-data">
+        <h2>แก้ไขเมนู</h2>
+        <div class="name">
+            <div class="text">
+                <h4>ชื่อ</h4>
+                <p>(ไม่เกิน 30 ตัวอักษร)</p>
+            </div>
+            <input type="text">
+        </div>
+        <div class="detail">
+            <div class="text">
+                <h4>รายละเอียด</h4>
+                <p>(ไม่เกิน 500 ตัวอักษร)</p>
+            </div>
+            <input type="text">
+        </div>
+        <div class="pcat">
+            <div class="price">
+                <h4>ราคา (บาท)</h4>
+                <input type="number">
+            </div>
+            <div class="cat">
+                <h4>หมวดหมู่เมนู</h4>
+                <select>
+                    <option value="โตเกียว">โตเกียว</option>
+                    <option value="เครป">เครป</option>
+                    <option value="ของทอด">ของทอด</option>
+                </select>
+            </div>
+        </div>
+        <div class="image">
+            <h3>แก้ไขรูปภาพ</h3>
+            <div class="uploadIMG">
+                <div class="img"></div>
+                <div class="input_file">
+                    <input type="file" name="upfile" id="upfile" accept="image/*">
+                    <label for="upfile"><div>
+                        <svg width="46" height="38" viewBox="0 0 46 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M30.7874 26.7766L23.0085 18.9978L15.2297 26.7766" stroke="#757575" stroke-width="2.33365" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M23.0086 18.9978V36.5002" stroke="#757575" stroke-width="2.33365" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M39.3245 31.4243C41.2212 30.3902 42.7196 28.754 43.5832 26.7738C44.4467 24.7935 44.6262 22.5821 44.0933 20.4886C43.5605 18.395 42.3456 16.5385 40.6404 15.2121C38.9353 13.8857 36.8369 13.1649 34.6766 13.1635H32.2263C31.6377 10.8867 30.5406 8.77297 29.0174 6.98123C27.4943 5.18949 25.5848 3.76635 23.4325 2.8188C21.2802 1.87126 18.9411 1.42396 16.5911 1.51055C14.241 1.59714 11.9412 2.21535 9.86445 3.31871C7.78772 4.42207 5.98813 5.98186 4.60099 7.88083C3.21385 9.7798 2.27525 11.9685 1.85576 14.2824C1.43627 16.5964 1.54679 18.9753 2.17904 21.2403C2.81128 23.5054 3.94878 25.5977 5.50602 27.3598" stroke="#757575" stroke-width="2.33365" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M30.7874 26.7766L23.0085 18.9978L15.2297 26.7766" stroke="#757575" stroke-width="2.33365" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p>เลือกรูปภาพจากอุปกรณ์ของคุณ หรือวางไฟล์ของคุณที่นี่</p>
+                    </div></label>
+                </div>
+            </div>
+        </div>
+        <button>บันทึกการแก้ไข</button>
+        <div class="etc">
+            <div class="delete">
+                <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_560_195)">
+                <mask id="mask0_560_195" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="-1" y="-2" width="37" height="37">
+                <rect x="-0.5" y="-1.5" width="36" height="36" fill="#D9D9D9"/>
+                </mask>
+                <g mask="url(#mask0_560_195)">
+                <path d="M10 30C9.175 30 8.46875 29.7063 7.88125 29.1188C7.29375 28.5312 7 27.825 7 27V7.5H5.5V4.5H13V3H22V4.5H29.5V7.5H28V27C28 27.825 27.7063 28.5312 27.1188 29.1188C26.5312 29.7063 25.825 30 25 30H10ZM25 7.5H10V27H25V7.5ZM13 24H16V10.5H13V24ZM19 24H22V10.5H19V24Z" fill="black"/>
+                </g>
+                </g>
+                <defs>
+                <clipPath id="clip0_560_195">
+                <rect width="34" height="34" fill="white" transform="translate(0.5 0.5)"/>
+                </clipPath>
+                </defs>
+                </svg>
+                <p>ลบเมนู</p>
+            </div>
+            <div class="cancel">
+                <p>ยกเลิกการแก้ไข</p>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

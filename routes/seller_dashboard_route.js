@@ -16,7 +16,9 @@ router.get('/seller_dashboard', (req, res) => {
     const formattedDateTime = formatter.format(currentTime);
     const sellerdashboard = {
         time: formattedDateTime,
-        Store_status: "เปิด"
+        Store_status: "เปิด",
+        total_price: 100,
+        total_amount: "30"
     }
     res.render('seller_dashboard', {seller_dashboard: sellerdashboard})
 })

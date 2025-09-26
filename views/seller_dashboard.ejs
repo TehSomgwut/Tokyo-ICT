@@ -42,7 +42,7 @@
             </svg>
             <h3>ออเดอร์</h3>
         </div></a>
-        <a href="/public/html/Seller_manipulation.html"><div class="options" id="option_menu">
+        <a href="/seller_manipulation"><div class="options" id="option_menu">
             <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M24.3969 25.1843H13.189" stroke="white" stroke-width="2.06979" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M24.3969 18.6854H13.189" stroke="white" stroke-width="2.06979" stroke-linecap="round" stroke-linejoin="round"/>
@@ -71,12 +71,12 @@
             <div class="data" id="Revenue">
                 <p class="bold">ยอดขายวันนี้ :</p>
                 <p><%= seller_dashboard.time %> น.</p>
-                <h1>฿550</h1>
+                <h1><%= seller_dashboard.total_price %>฿</h1>
             </div>
             <div class="data" id="total">
                 <p class="bold">รายงานทั้งหมดวันนี้ :</p>
                 <p><%= seller_dashboard.time %> น.</p>
-                <h1>#16</h1>
+                <h1>#<%= seller_dashboard.total_amount %></h1>
             </div>
         </div>
     </div>

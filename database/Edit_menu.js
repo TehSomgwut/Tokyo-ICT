@@ -8,6 +8,6 @@ const EditmenuSchema = new mongoose.Schema({
     Img_menus: String
 })
 
-const Editmenu = mongoose.model('Editmenu', sellerSchema);
+const Editmenu = mongoose.model('Editmenu', EditmenuSchema);
 
 module.exports = Editmenu;

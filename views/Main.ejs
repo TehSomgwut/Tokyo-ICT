@@ -7,16 +7,15 @@
     <link rel="stylesheet" href="Style/main.css">
 </head>
 <body>
-    <side>
-      <div class="img"></div>
+        <div class="sidebar">
       <div>
         <hr>
         <div>
-          <a href="#"><p>หน้าหลัก</p></a>
+          <p>หน้าหลัก</p>
         </div>
         <hr>
         <div>
-          <a href="/chart"><p>คำสั่งซื้อของฉัน</p></a>
+          <p>คำสั่งซื้อของฉัน</p>
         </div>
         <hr> 
         <div>
@@ -24,11 +23,11 @@
         </div>
         <hr>
         <div>
-          <a href="/about"><p>ความช่วยเหลือและเกี่ยวกับ</p></a>
+          <p>ความช่วยเหลือและเกี่ยวกับ</p>
         </div>
         <hr>
       </div>
-    </side>
+    </div>
     <div class="close_sidebar"></div>
     <nav>
         <div>
@@ -53,7 +52,7 @@
 
     <div class="container">
       <form>
-        <p>สวัสดี <b>โอ๋เอ๋</b> วันนี้ทานอะไรดี</p>
+        <p>สวัสดี <b><%= name %></b> วันนี้ทานอะไรดี</p>
         <div id="search">
           <label for="search_input">
             <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
@@ -93,7 +92,7 @@
           
         <% for(let i = 0; i < recommendedMenus.length; i++) { %>
           <div class="recommend_menus">
-            <div class="recommend_menus_img" style="background-image: url('<%= recommendedMenus[i].image %>'); background-size: cover; background-position: center;"></div>
+            <div class="recommend_menus_img" style="background-image: url('#'); background-size: cover; background-position: center;"></div>
             <h5><%= recommendedMenus[i].name %></h5>
             <div>
               <div>
@@ -113,55 +112,39 @@
             </div>
           </div>
         <% } %>
-          <div class="recommend_menus">
-            <div class="recommend_menus_img"></div>
-            <h5>เซ็ตโตเกียว 5 ชิ้น</h5>
-            <div>
-              <div>
-                <p>คละใส้ได้</p>
-                <p class="recommend_price">50 ฿</p>
-              </div>
-              <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="9.4337" cy="9.4337" r="9.4337" fill="url(#paint0_linear_18_60)"/>
-              <path d="M9.50001 5.70834V13.2917M5.70834 9.50001H13.2917" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <defs>
-              <linearGradient id="paint0_linear_18_60" x1="3" y1="2" x2="15" y2="17.5" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#FFA600"/>
-              <stop offset="1" stop-color="#FF4B3A"/>
-              </linearGradient>
-              </defs>
-              </svg>
-            </div>
-          </div>
-          <div class="recommend_menus">
-            <div class="recommend_menus_img"></div>
-            <h5>เซ็ตโตเกียว 5 ชิ้น</h5>
-            <div>
-              <div>
-                <p>คละใส้ได้</p>
-                <p class="recommend_price">50 ฿</p>
-              </div>
-              <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="9.4337" cy="9.4337" r="9.4337" fill="url(#paint0_linear_18_60)"/>
-              <path d="M9.50001 5.70834V13.2917M5.70834 9.50001H13.2917" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <defs>
-              <linearGradient id="paint0_linear_18_60" x1="3" y1="2" x2="15" y2="17.5" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#FFA600"/>
-              <stop offset="1" stop-color="#FF4B3A"/>
-              </linearGradient>
-              </defs>
-              </svg>
-            </div>
-          </div>
         </div>
       </div>
       
+
       <div class="all_menus">
         <div class="all_menus_caption">
           <h3>เมนูทั้งหมด</h3>
           <p>ดูทั้งหมด</p>
         </div>
         <div class="menus">
+          <% for(let i=0; i < menus.length; i++) { %>
+              <div class="menu">
+              <div>
+                <img class="menu_img" src=<%= menus[i].imgPath %>></img>
+                <div>
+                  <h4><%= menus[i].name %></h4>
+                  <p><%= menus[i].flavour %></p>
+                  <p class="price">ราคา <%= menus[i].price %>฿</p>
+                </div>
+              </div>
+              <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="9.4337" cy="9.4337" r="9.4337" fill="url(#paint0_linear_18_60)"/>
+              <path d="M9.50001 5.70834V13.2917M5.70834 9.50001H13.2917" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+              <linearGradient id="paint0_linear_18_60" x1="3" y1="2" x2="15" y2="17.5" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FFA600"/>
+              <stop offset="1" stop-color="#FF4B3A"/>
+              </linearGradient>
+              </defs>
+              </svg>
+            </div>
+            <hr>
+          <% } %>
           <div class="menu">
             <div>
               <div class="menu_img"></div>

@@ -24,7 +24,7 @@
       </div>
 
       <div class="choice">
-        <a href="/public/html/Seller_dashboard.html"><div class="options" id="option_dashboard">
+        <a href="/seller_dashboard"><div class="options" id="option_dashboard">
           <svg
             width="34"
             height="34"
@@ -58,7 +58,7 @@
           </svg>
           <h3>แดชบอร์ด</h3>
         </div></a>
-        <a href="/public/html/Seller_order_list.html"><div class="options" id="option_order">
+        <a href="/seller_order_list"><div class="options" id="option_order">
           <svg
             width="34"
             height="34"
@@ -155,29 +155,54 @@
           </div>
         </div>
         <hr />
-        <button>+ เพิ่มเมนูอาหาร</button>
+        <a href="/seller_add"><button>+ เพิ่มเมนูอาหาร</button></a>
       </div>
       <div class="menus">
-        <div class="menu">
-            <img class="img" src=<%= seller_manipulation.Img_menus %>>
-            <div class="detail">
+        <% if (seller_manipulation) { %>
+          <% for(let i=0; i<seller_manipulation.length; i++) { %>
+            <div class="menu">
+              <% if (!seller_manipulation[i].Img_menus) { %>
+                <div class="img"></div>
+              <% } else { %>
+                <img class="img" src=<%= seller_manipulation[i].Img_menus %> />
+              <% } %>
+              <div class="detail">
                 <div class="tag">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <mask id="mask0_552_196" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
-                    <rect width="20" height="20" fill="#D9D9D9"/>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <mask
+                      id="mask0_552_196"
+                      style="mask-type:alpha"
+                      maskUnits="userSpaceOnUse"
+                      x="0"
+                      y="0"
+                      width="20"
+                      height="20"
+                    >
+                      <rect width="20" height="20" fill="#D9D9D9" />
                     </mask>
                     <g mask="url(#mask0_552_196)">
-                    <path d="M17.8333 11.8751L11.875 17.8334C11.7083 18.0001 11.5208 18.1251 11.3125 18.2084C11.1041 18.2917 10.8958 18.3334 10.6875 18.3334C10.4791 18.3334 10.2708 18.2917 10.0625 18.2084C9.85413 18.1251 9.66663 18.0001 9.49996 17.8334L2.14579 10.4792C1.99301 10.3265 1.87496 10.1494 1.79163 9.948C1.70829 9.74661 1.66663 9.5348 1.66663 9.31258V3.33341C1.66663 2.87508 1.82982 2.48272 2.15621 2.15633C2.4826 1.82994 2.87496 1.66675 3.33329 1.66675H9.31246C9.53468 1.66675 9.74996 1.71189 9.95829 1.80216C10.1666 1.89244 10.3472 2.01397 10.5 2.16675L17.8333 9.52091C18 9.68758 18.1215 9.87508 18.1979 10.0834C18.2743 10.2917 18.3125 10.5001 18.3125 10.7084C18.3125 10.9167 18.2743 11.1216 18.1979 11.323C18.1215 11.5244 18 11.7084 17.8333 11.8751ZM10.6875 16.6667L16.6458 10.7084L9.29163 3.33341H3.33329V9.29175L10.6875 16.6667ZM5.41663 6.66675C5.76385 6.66675 6.05899 6.54522 6.30204 6.30216C6.5451 6.05911 6.66663 5.76397 6.66663 5.41675C6.66663 5.06953 6.5451 4.77439 6.30204 4.53133C6.05899 4.28828 5.76385 4.16675 5.41663 4.16675C5.0694 4.16675 4.77427 4.28828 4.53121 4.53133C4.28815 4.77439 4.16663 5.06953 4.16663 5.41675C4.16663 5.76397 4.28815 6.05911 4.53121 6.30216C4.77427 6.54522 5.0694 6.66675 5.41663 6.66675Z" fill="#ED3333"/>
+                      <path
+                        d="M17.8333 11.8751L11.875 17.8334C11.7083 18.0001 11.5208 18.1251 11.3125 18.2084C11.1041 18.2917 10.8958 18.3334 10.6875 18.3334C10.4791 18.3334 10.2708 18.2917 10.0625 18.2084C9.85413 18.1251 9.66663 18.0001 9.49996 17.8334L2.14579 10.4792C1.99301 10.3265 1.87496 10.1494 1.79163 9.948C1.70829 9.74661 1.66663 9.5348 1.66663 9.31258V3.33341C1.66663 2.87508 1.82982 2.48272 2.15621 2.15633C2.4826 1.82994 2.87496 1.66675 3.33329 1.66675H9.31246C9.53468 1.66675 9.74996 1.71189 9.95829 1.80216C10.1666
+                        1.89244 10.3472 2.01397 10.5 2.16675L17.8333 9.52091C18 9.68758 18.1215 9.87508 18.1979 10.0834C18.2743 10.2917 18.3125 10.5001 18.3125 10.7084C18.3125 10.9167 18.2743 11.1216 18.1979 11.323C18.1215 11.5244 18 11.7084 17.8333 11.8751ZM10.6875 16.6667L16.6458 10.7084L9.29163 3.33341H3.33329V9.29175L10.6875 16.6667ZM5.41663 6.66675C5.76385 6.66675 6.05899 6.54522 6.30204 6.30216C6.5451 6.05911 6.66663 5.76397 6.66663 5.41675C6.66663 5.06953 6.5451 4.77439 6.30204 4.53133C6.05899 4.28828 5.76385 4.16675 5.41663 4.16675C5.0694 4.16675 4.77427 4.28828 4.53121 4.53133C4.28815 4.77439 4.16663 5.06953 4.16663 5.41675C4.16663 5.76397 4.28815 6.05911 4.53121 6.30216C4.77427 6.54522 5.0694 6.66675 5.41663 6.66675Z"
+                        fill="#ED3333"
+                      />
                     </g>
-                    </svg>
-                    <p><%= seller_manipulation.Tagmenu %></p>
+                  </svg>
+                  <p><%= seller_manipulation[i].Tagmenu %></p>
                 </div>
-                <p class="name"><%= seller_manipulation.Menusname %></p>
-                <p class="menu_detail">รายละเอียด:<%= seller_manipulation.Detail %></p>
-                <p>ราคา: <span><%= seller_manipulation.Price %>฿</span></p>
-            </div>
-            <div class="marker">
-                <div class="edit">
+                <p class="name"><%= seller_manipulation[i].Menusname %></p
+                >
+                <p class="menu_detail">รายละเอียด:<%= seller_manipulation[i].Detail %></p>
+                <p>ราคา: <span><%= seller_manipulation[i].Price %>฿</span></p>
+              </div>
+              <div class="marker">
+                <a href="/seller_edit"><div class="edit">
                     <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_552_181)">
                     <path d="M9.91667 24.0833V14.0675L19.7342 4.25H7.08333C5.525 4.25 4.25 5.525 4.25 7.08333V26.9167C4.25 28.475 5.525 29.75 7.08333 29.75H26.9167C28.475 29.75 29.75 28.475 29.75 26.9167V14.2658L19.9325 24.0833H9.91667Z" fill="white"/>
@@ -191,7 +216,7 @@
                     </defs>
                     </svg>
                     <p>แก้ไข</p>
-                </div>
+                </div></a>
                 <div class="delete">
                     <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_557_437)">
@@ -210,8 +235,12 @@
                     </svg>
                     <p>ลบ</p>
                 </div>
+              </div>
             </div>
-        </div>
+          <% } %>
+        <% } else { %>
+          <p>No menu items available.</p>
+        <% } %>
       </div>
     </div>
   </body>

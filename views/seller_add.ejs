@@ -20,7 +20,7 @@
           <input type="checkbox" />
           <span class="slider"></span>
         </label>
-        <p><%= seller_add.Store_status %></p>
+        <p><%= seller_add.status %></p>
       </div>
 
       <div class="choice">
@@ -151,23 +151,23 @@
                 <h4>ชื่อ</h4>
                 <p>(ไม่เกิน 30 ตัวอักษร)</p>
             </div>
-            <input type="text">
+            <input type="text" name="name">
         </div>
         <div class="detail">
             <div class="text">
                 <h4>รายละเอียด</h4>
                 <p>(ไม่เกิน 500 ตัวอักษร)</p>
             </div>
-            <input type="text">
+            <input type="text" name="detail">
         </div>
         <div class="pcat">
             <div class="price">
                 <h4>ราคา (บาท)</h4>
-                <input type="number">
+                <input type="number" name="price" min="0">
             </div>
             <div class="cat">
                 <h4>หมวดหมู่เมนู</h4>
-                <select>
+                <select name="category" id="category">
                     <option value="โตเกียว">โตเกียว</option>
                     <option value="เครป">เครป</option>
                     <option value="ของทอด">ของทอด</option>
@@ -177,9 +177,13 @@
         <div class="image">
             <h3>แก้ไขรูปภาพ</h3>
             <div class="uploadIMG">
-                <div class="img"></div>
+              <% if(!seller_add.Img_menu) { %>
+                <img class="img" id="output" name="output"></img>
+              <% } else { %>
+                <img src="<%= seller_add.Img_menu %>" class="img" id="output"/>
+              <% } %>
                 <div class="input_file">
-                    <input type="file" name="upfile" id="upfile" accept="image/*">
+                    <input type="file" name="upfile" id="upfile" accept="image/*" onchange="loadFile(event)"/>
                     <label for="upfile"><div>
                         <svg width="46" height="38" viewBox="0 0 46 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M30.7874 26.7766L23.0085 18.9978L15.2297 26.7766" stroke="#757575" stroke-width="2.33365" stroke-linecap="round" stroke-linejoin="round"/>
@@ -193,9 +197,44 @@
             </div>
         </div>
         <div class="save">
-            <button>บันทึกเมนู</button>
+            <button onclick="sendData(event)">บันทึกเมนู</button>
                 <button class="cancel">ยกเลิก</button>
         </div>
     </form>
+    <script src="/axios/axios.min.js"></script>
+    <script>
+      function loadFile(event) {
+        var image = document.getElementById('output');
+        image.src = URL.createObjectURL(event.target.files[0]);
+      }
+
+      function sendData(event) {
+        event.preventDefault();
+        const name = document.querySelector('input[name="name"]').value;
+        const detail = document.querySelector('input[name="detail"]').value;
+        const price = document.querySelector('input[name="price"]').value;
+        const category = document.querySelector('select[name="category"]').value;
+        const upfile = document.querySelector('input[name="upfile"]').files[0];
+
+        axios({
+          method: 'post',
+          url: '/seller_add',
+          data: {
+            name: name,
+            detail: detail,
+            price: price,
+            category: category,
+            upfile: upfile
+          },
+          timeout: 10000
+        }).then((res) => {
+          console.log(res.data);
+          alert("เพิ่มเมนูสำเร็จ");
+        }).catch((err) => {
+          console.error(err);
+          alert("เกิดข้อผิดพลาดในการเพิ่มเมนู");
+        });
+      }
+    </script>
 </body>
 </html>

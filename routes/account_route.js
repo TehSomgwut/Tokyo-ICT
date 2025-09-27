@@ -6,7 +6,7 @@ router.get('/profile', (req, res) => {
     const detail = {
         Cusname: "Tae",
         CusID: "101",
-        Img_profile: "Test"
+        Img_profile: "uploads/Image.jpg"
     }
     res.render('accountName', {detail: detail})
 })

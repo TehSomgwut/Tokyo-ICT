@@ -1,9 +1,10 @@
 const mongoose = require('../connectDB');
 
 const toppingsSchema = new mongoose.Schema({
-    Price_Toppings: Number,
-    Toppings_crepes: String,
-    Img_Toppings: String
+    Price: Number,
+    Name: { type: String, required: true, unique: true },
+    Detail: String,
+    Tag: String
 })
 
 const Toppings = mongoose.model('Toppings', toppingsSchema);

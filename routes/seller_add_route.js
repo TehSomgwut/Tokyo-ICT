@@ -5,6 +5,7 @@ const multer = require('multer');
 const Tokyo = require('../database/Tokyo');
 const Crapes = require('../database/Crapes');
 const Fried = require('../database/Fried');
+const Flavour = require('../database/Flavor');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -34,43 +35,41 @@ router.post('/seller_add', upload.single('upfile'), async (req, res) => {
     const { name, detail, price, category } = req.body;
     const filePath = req.file ? `uploads/${req.file.filename}` : null;
     console.log(filePath);
+    let newMenu = {
+      Name: name,
+      Detail: detail,
+      Price: price,
+      Tag: category,
+      Img: filePath
+     };
 
     switch (category) {
       case "โตเกียว":
-        const newTokyo = {
-          Price_tokyo: price,
-          Flavor_tokyo: name,
-          Description: detail,
-          Img_tokyo: filePath
-        };
-        const tokyo = new Tokyo(newTokyo);
+        const tokyo = new Tokyo(newMenu);
         await tokyo.save();
         break;
-
       case "เครป":
-        const newCrapes = {
-          Price_crapes: price,
-          Flavor_crapes: name,
-          Detail_crapes: detail,
-          Img_crapes: filePath // ใช้ path ของไฟล์แทน buffer
-        };
-        const crapes = new Crapes(newCrapes);
+        const crapes = new Crapes(newMenu);
         await crapes.save();
         break;
       case "ของทอด":
-        const newFried = {
-          Price_Fried: price,
-          Type_Fried: name,
-          Img_Fried: filePath,
-          Detail_Fried: detail
-        };
-        const fried = new Fried(newFried);
+        const fried = new Fried(newMenu);
         await fried.save();
         break;
+      case "ท็อปปิ้ง":
+        const newFlavour = {
+          Name: name,
+          Detail: detail,
+          Price: price,
+          Tag: category
+         };
+        const flavor = new Flavour(newFlavour);
+        await flavor.save();
+        break;
+      }  
+      res.status(200).send("Menu added successfully");
     }
-
-    res.status(200).send("Menu added successfully");
-  } catch (error) {
+  catch (error) {
     console.error(error);
     res.status(500).send("Server error");
   }

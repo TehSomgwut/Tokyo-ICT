@@ -167,10 +167,11 @@
             </div>
             <div class="cat">
                 <h4>หมวดหมู่เมนู</h4>
-                <select name="category" id="category">
+                <select name="category" id="category" onchange="Topping()">
                     <option value="โตเกียว">โตเกียว</option>
                     <option value="เครป">เครป</option>
                     <option value="ของทอด">ของทอด</option>
+                    <option value="ท็อปปิ้ง">ท็อปปิ้ง</option>
                 </select>
             </div>
         </div>
@@ -208,6 +209,16 @@
         image.src = URL.createObjectURL(event.target.files[0]);
       }
 
+      function Topping() {
+        const category = document.getElementById('category').value;
+        if (category === 'ท็อปปิ้ง') {
+          document.querySelector('.image').style.display = 'none';
+        }
+        else {
+          document.querySelector('.image').style.display = 'block';
+        }
+      }
+
       function sendData(event) {
         event.preventDefault();
         const name = document.querySelector('input[name="name"]').value;
@@ -215,7 +226,6 @@
         const price = document.querySelector('input[name="price"]').value;
         const category = document.querySelector('select[name="category"]').value;
         const upfile = document.querySelector('input[name="upfile"]').files[0];
-
         axios({
           method: 'post',
           url: '/seller_add',

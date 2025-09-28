@@ -1,9 +1,11 @@
 const mongoose = require('../connectDB');
 
 const FriedSchema = new mongoose.Schema({
-    Price_Fried: Number,
-    Type_Fried: String,
-    Img_Fried: String
+    Price: Number,
+    Name: { type: String, required: true, unique: true },
+    Detail: String,
+    Img: String,
+    Tag: String
 })
 
 const Fried = mongoose.model('Fried', FriedSchema);

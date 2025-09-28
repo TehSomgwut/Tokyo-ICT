@@ -12,7 +12,10 @@ router.get('/signup', (req, res) => {
 router.post('/signup', async (req, res) => {
     try {
         const {email, password} = req.body
-        const user = await Customers.findOne({email: email, password: password})
+        req.session.email = email
+        req.session.password = password
+        req.session.cookie.maxAge = 24 * 60 * 60 * 1000;
+        const user = await Customers.findOne({CusGmail: email, Password: password})
         if (user) {
             return res.status(200).send("Account already exists")
         } else {
@@ -21,7 +24,7 @@ router.post('/signup', async (req, res) => {
                 Password: password
             })
             await newUser.save()
-            return res.status(201).send("Create account successfully")
+            return res.status(201).redirect(`/profile/${req.session.email}`)
         }
     }
     catch (err) {

@@ -10,7 +10,7 @@
     <div class="wrapper">
         <div class="top">
             <img src="/IMAGE/Logo/TYICT White.svg" width="130px" height="130px"> 
-            <h1>Log in</h1>
+            <h1>Signup</h1>
             <p>เร็วเข้า! ข้างในมีอะไรให้เลือกเยอะเลย</p>
         </div>
 
@@ -95,9 +95,9 @@
                     email: email,
                     password: password
                 },
-                setTimeout: 3000
+                timeout: 3000
             }).then((res) => {
-                window.location.href = '/profile';
+                window.location.href = `/profile/${email}`;
             }).catch((err) => {
                 alert('คุณอาจมีบัญชีแล้ว ลองเข้าสู่ระบบดูสิ');
             });

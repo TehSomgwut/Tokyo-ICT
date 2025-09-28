@@ -241,6 +241,7 @@
         }).then((res) => {
           console.log(res.data);
           alert("เพิ่มเมนูสำเร็จ");
+          window.location.href = "/seller_manipulation";
         }).catch((err) => {
           console.error(err);
           alert("เกิดข้อผิดพลาดในการเพิ่มเมนู");

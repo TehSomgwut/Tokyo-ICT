@@ -20,7 +20,7 @@
           <input type="checkbox" />
           <span class="slider"></span>
         </label>
-        <p><%= seller_edit.Store_status %></p>
+        <p>เปิด</p>
       </div>
 
       <div class="choice">
@@ -151,35 +151,31 @@
                 <h4>ชื่อ</h4>
                 <p>(ไม่เกิน 30 ตัวอักษร)</p>
             </div>
-            <input type="text">
+            <input type="text" value="<%= seller_edit.Name %>">
         </div>
         <div class="detail">
             <div class="text">
                 <h4>รายละเอียด</h4>
                 <p>(ไม่เกิน 500 ตัวอักษร)</p>
             </div>
-            <input type="text">
+            <input type="text" value="<%= seller_edit.Detail %>">
         </div>
         <div class="pcat">
             <div class="price">
                 <h4>ราคา (บาท)</h4>
-                <input type="number">
-            </div>
-            <div class="cat">
-                <h4>หมวดหมู่เมนู</h4>
-                <select>
-                    <option value="โตเกียว">โตเกียว</option>
-                    <option value="เครป">เครป</option>
-                    <option value="ของทอด">ของทอด</option>
-                </select>
+                <input type="number" value="<%= seller_edit.Price %>">
             </div>
         </div>
         <div class="image">
             <h3>แก้ไขรูปภาพ</h3>
             <div class="uploadIMG">
-                <div class="img"></div>
+              <% if(!seller_edit.Img) { %>
+                <img class="img" id="output" name="output"></img>
+              <% } else { %>
+                <img src="<%= seller_edit.Img %>" class="img" id="output"/>
+              <% } %>
                 <div class="input_file">
-                    <input type="file" name="upfile" id="upfile" accept="image/*">
+                    <input type="file" name="upfile" id="upfile" accept="image/*" onchange="loadFile(event)"/>
                     <label for="upfile"><div>
                         <svg width="46" height="38" viewBox="0 0 46 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M30.7874 26.7766L23.0085 18.9978L15.2297 26.7766" stroke="#757575" stroke-width="2.33365" stroke-linecap="round" stroke-linejoin="round"/>
@@ -192,9 +188,9 @@
                 </div>
             </div>
         </div>
-        <button>บันทึกการแก้ไข</button>
+        <button onclick="update(event)">บันทึกการแก้ไข</button>
         <div class="etc">
-            <div class="delete">
+            <div class="delete" onclick="window.location.href='/seller_manipulation'">
                 <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_560_195)">
                 <mask id="mask0_560_195" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="-1" y="-2" width="37" height="37">
@@ -212,10 +208,45 @@
                 </svg>
                 <p>ลบเมนู</p>
             </div>
-            <div class="cancel">
+            <div class="cancel" onclick="window.location.href='/seller_manipulation'">
                 <p>ยกเลิกการแก้ไข</p>
             </div>
         </div>
     </form>
+    <script>
+        var loadFile = function(event) {
+            var image = document.getElementById('output');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+
+        function update(event) {
+          event.preventDefault();
+          const name = document.querySelector('input[name="name"]').value;
+          const detail = document.querySelector('input[name="detail"]').value;
+          const price = document.querySelector('input[name="price"]').value;
+          const category = document.querySelector('select[name="category"]').value;
+          const upfile = document.querySelector('input[name="upfile"]').files[0];
+          axios({
+            method: 'post',
+            url: '/seller_edit/product/<%= seller_edit._id %>',
+            data: {
+              name: name,
+              detail: detail,
+              price: price,
+              category: category,
+              upfile: upfile
+            },
+            timeout: 10000,
+            headers: { 'Content-Type': 'multipart/form-data' }
+          }).then((res) => {
+            console.log(res.data);
+            alert("อัพเดตเมนูสำเร็จ");
+            window.location.href = "/seller_manipulation";
+          }).catch((err) => {
+            console.error(err);
+            alert("เกิดข้อผิดพลาดในการเพิ่มเมนู");
+          });
+        }
+    </script>
 </body>
 </html>

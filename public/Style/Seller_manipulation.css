@@ -204,9 +204,31 @@ nav {
             box-sizing: border-box;
             background-color: var(--sub-colors);
             border-radius: 7px;
+            align-items: center;
+            justify-content: space-between;
+            .menu_detail_container {
+                display: flex;
+                gap: 15px;
+                align-items: center;
+                width: 50%;
+            }
             .img {
-                width: 30%;
-                background-color: #008CFF;
+                width: min(150px, 30%);
+                background-color: var(--main-colors);
+                border-radius: 7px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-weight: 500;
+                font-size: 1.3em;
+                height: 140px;
+                text-align: center;
+            }
+            img {
+                width: min(150px, 30%);
+                height: 140px;
+                object-fit: cover;
                 border-radius: 7px;
             }
             .detail {
@@ -242,7 +264,7 @@ nav {
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
-                    width: 100%;
+                    width: 20vw;
                 }
                 p span {
                     color: var(--main-colors);
@@ -253,7 +275,7 @@ nav {
                 display: flex;
                 flex-direction: column;
                 gap: 15px;
-                width: 100%;
+                width: 50%;
                 .edit, .delete {
                     box-sizing: border-box;
                     display: flex;

@@ -1,6 +1,6 @@
 const mongoose = require('../connectDB');
 
-const DashboardSchema = new mongoose.Schema({
+const dashboardSchema = new mongoose.Schema({
     date: Date,
     Store_status: String,
     total_price: String,

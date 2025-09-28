@@ -1,6 +1,6 @@
 const mongoose = require('../connectDB');
 
-const EditmenuSchema = new mongoose.Schema({
+const editmenuSchema = new mongoose.Schema({
     Menusname: String,
     Detail: String,
     Price: Number,

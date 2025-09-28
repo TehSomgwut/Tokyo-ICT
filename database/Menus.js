@@ -1,6 +1,6 @@
 const mongoose = require('../connectDB');
 
-const crapesSchema = new mongoose.Schema({
+const menusSchema = new mongoose.Schema({
     Price: Number,
     Name: { type: String, required: true, unique: true },
     Detail: String,
@@ -8,6 +8,6 @@ const crapesSchema = new mongoose.Schema({
     Tag: String
 })
 
-const Crapes = mongoose.model('Crapes', crapesSchema);
+const Menus = mongoose.model('Menus', menusSchema);
 
-module.exports = Crapes;
+module.exports = Menus;

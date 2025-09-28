@@ -26,7 +26,7 @@ router.post('/login', async (req, res) => {
         }
         req.session.email = email;
         req.session.password = password;
-        req.session.cookies.maxAge = 24 * 60 * 60 * 1000;
+        req.session.cookie.maxAge = 24 * 60 * 60 * 1000;
         return res.status(200).send("Login successful");
     }
     catch (err) {

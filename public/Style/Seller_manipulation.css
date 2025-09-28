@@ -174,6 +174,15 @@ nav {
         display: flex;
         flex-direction: column;
         gap: 15px;
+        .sort {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .sort div {
+            width: 100%;
+        }
         .text {
             display: flex;
             width: 100%;

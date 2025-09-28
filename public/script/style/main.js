@@ -1,7 +1,7 @@
 const category_container = document.querySelector('.category_container')
 const recommend_menu_container = document.querySelector('.recommend_menus_container');
 const category = document.querySelectorAll('.category_container > div');
-const side_bar = document.querySelector('side');
+const side_bar = document.querySelector('.sidebar');
 const menu_icon = document.getElementsByClassName('menu_icon')[0];
 const close_sidebar = document.getElementsByClassName('close_sidebar')[0];
 
@@ -26,6 +26,7 @@ category.forEach(c => {
 
 
 menu_icon.addEventListener('click', ()=> {
+    console.log('click')
     side_bar.style.left = '0';
     close_sidebar.style.right = '0';
     close_sidebar.style.backdropFilter = 'blur(5px)';

@@ -1,67 +1,39 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path')
+const Menus = require('../database/Menus');
+const Customers = require('../database/Customer');
 
-require('../connectDB')
-
-router.all('/main', (req, res) => {
-    const recommendedMenus = [
-        {
-        name: "tokyo",
-        description: "Delicious tokyo",
-        price: 10
-        },
-        {
-        name: "sweet tokyo",
-        description: "Top delicious tokyo",
-        price: 10
-        },
-        {
-        name: "l-tokyo",
-        description: "Good delicious tokyo",
-        price: 10
+router.get('/main', async (req, res) => {
+    try {
+        if (!req.session.email) {
+            return res.redirect('/login');
         }
-    ]
 
-    const categories = [
-        {
-            name: "Top sales",
-            image: "#"
-        }
-    ]
+        const Tokyo = await Menus.find({ Tag : "โตเกียว" });
+        const Fried = await Menus.find({ Tag : "ของทอด" });
+        const Crape = await Menus.find({ Tag : "เครป" });
+        const recommendedMenus = [...Tokyo, ...Fried, ...Crape];
+        const menus = [...Tokyo, ...Fried, ...Crape];
 
-    const menus = [
-        {
-            name: "Tokyo",
-            flavour: "เค็ม",
-            price: 10,
-            imgPath: "#"
-        },
-        {
-            name: "Tokyo",
-            flavour: "หวาน",
-            price: 10,
-            imgPath: "#"
-        },
-        {
-            name: "Tokyo",
-            flavour: "สลัด",
-            price: 10,
-            imgPath: "#"
-        },
-        {
-            name: "Tokyo",
-            flavour: "ไม่มีใส้",
-            price: 15,
-            imgPath: "#"
-        },
-    ]
-    res.render('Main', {
-        recommendedMenus: recommendedMenus,
-        categories: categories,
-        name: req.session.email,
-        menus: menus
-    });
+        const customer = await Customers.findOne({ CusGmail: req.session.email });
+        const Cus_Name = customer.Cusname || customer.CusGmail || req.session.email || "Guest";
+
+        const categories = await Menus.distinct('Tag').exec();
+        
+
+        res.render('Main', {
+            recommendedMenus: recommendedMenus,
+            menus: menus,
+            Cus_Name: Cus_Name,
+            categories: categories,
+            CusGmail: req.session.email
+        });
+    }
+    catch (error) {
+        console.error('Error fetching menus:', error);
+        res.status(500).send('Internal Server Error');
+    }
 })
 
 module.exports = router;

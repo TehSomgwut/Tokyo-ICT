@@ -158,12 +158,12 @@
                 <h4>รายละเอียด</h4>
                 <p>(ไม่เกิน 500 ตัวอักษร)</p>
             </div>
-            <input type="text" value="<%= seller_edit.Detail %>">
+            <input type="text" value="<%= seller_edit.Detail %>" name="detail">
         </div>
         <div class="pcat">
             <div class="price">
                 <h4>ราคา (บาท)</h4>
-                <input type="number" value="<%= seller_edit.Price %>">
+                <input type="number" value="<%= seller_edit.Price %>" name = "price">
             </div>
         </div>
         <div class="image">
@@ -172,7 +172,7 @@
               <% if(!seller_edit.Img) { %>
                 <img class="img" id="output" name="output"></img>
               <% } else { %>
-                <img src="<%= seller_edit.Img %>" class="img" id="output"/>
+                <img src="/<%= seller_edit.Img %>" class="img" id="output"/>
               <% } %>
                 <div class="input_file">
                     <input type="file" name="upfile" id="upfile" accept="image/*" onchange="loadFile(event)"/>
@@ -208,11 +208,12 @@
                 </svg>
                 <p>ลบเมนู</p>
             </div>
-            <div class="cancel" onclick="window.location.href='/seller_manipulation'">
+            <div class="cancel" onclick="window.location.href='/seller_manipulation'" onclick="window.location.href='/seller_manipulation'">
                 <p>ยกเลิกการแก้ไข</p>
             </div>
         </div>
     </form>
+    <script src="/axios/axios.min.js"></script>
     <script>
         var loadFile = function(event) {
             var image = document.getElementById('output');
@@ -220,32 +221,35 @@
         };
 
         function update(event) {
-          event.preventDefault();
-          const name = document.querySelector('input[name="name"]').value;
-          const detail = document.querySelector('input[name="detail"]').value;
-          const price = document.querySelector('input[name="price"]').value;
-          const category = document.querySelector('select[name="category"]').value;
-          const upfile = document.querySelector('input[name="upfile"]').files[0];
-          axios({
-            method: 'post',
-            url: '/seller_edit/product/<%= seller_edit._id %>',
-            data: {
-              name: name,
-              detail: detail,
-              price: price,
-              category: category,
-              upfile: upfile
-            },
-            timeout: 10000,
-            headers: { 'Content-Type': 'multipart/form-data' }
-          }).then((res) => {
-            console.log(res.data);
-            alert("อัพเดตเมนูสำเร็จ");
-            window.location.href = "/seller_manipulation";
-          }).catch((err) => {
-            console.error(err);
-            alert("เกิดข้อผิดพลาดในการเพิ่มเมนู");
-          });
+            event.preventDefault();
+            const name = document.querySelector('.name input').value;
+            const detail = document.querySelector('.detail input').value;
+            const price = document.querySelector('.price input').value;
+            const upfile = document.getElementById('upfile').files[0];
+
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('detail', detail);
+            formData.append('price', price);
+            if (upfile) {
+                formData.append('upfile', upfile);
+            }
+
+            axios({
+                method: "post",
+                url: `/seller_edit/product/<%= seller_edit._id %>`,
+                data: formData,
+                timeout: 5000
+            }).then((res) => {
+                if (res.data) {
+                    window.location.href = '/seller_manipulation';
+                } else {
+                    alert('Failed to update menu');
+                }
+            }).catch((err) => {
+                console.error(err);
+                alert('Error updating menu');
+            });
         }
     </script>
 </body>

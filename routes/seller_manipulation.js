@@ -5,10 +5,10 @@ const Menus = require('../database/Menus');
 const fs = require('fs');
 
 router.get('/seller_manipulation', async (req, res) => {
-    const Menus = await Menus.find({});
-    const sellermanipulation = Menus
+    const menus = await Menus.find({});
+    const sellermanipulation = menus;
 
-    console.log(Menus);
+    console.log(menus);
 
     res.render('seller_manipulation', {seller_manipulation: sellermanipulation})
 })
@@ -21,8 +21,14 @@ router.post('/seller_delete', async (req, res) => {
             return res.status(404).json({ message: 'Menu not found' });
         }
         ImgPath = path.join(__dirname, `../public/${menu.Img}`);
-        if (fs.existsSync(menu.Img) && menu.Img) {
-            fs.unlinkSync(ImgPath);
+        if (fs.existsSync(ImgPath) && ImgPath) {
+            fs.unlinkSync(ImgPath, error => {
+                if (error) {
+                    console.error('Error deleting image file:', error);
+                } else {
+                    console.log('Image file deleted successfully');
+                }
+            });
         }
 
         await menu.deleteOne();

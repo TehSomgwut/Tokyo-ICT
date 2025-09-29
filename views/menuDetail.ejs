@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu details</title>
-    <link rel="stylesheet" href="/public/Style/menuDetail.css">
+    <link rel="stylesheet" href="/Style/menuDetail.css">
 </head>
 <body>
     <nav>
@@ -42,24 +42,29 @@
     <hr>
 
     <form class="flavour_checkbox">
+        <% if(flavours.length === 0 || !flavours || flavours === null || flavours === []) { %>
+            <h3>ไม่มีท็อปปิ้ง</h3>
+        <% } else { %>
         <div class="checkbox_container">
             <div class="flavour_checkbox_description">
                 <h5>ไส้</h5>
-                <p>ต้องระบุ, สูงสุด 1 รายการ</p>
+                <p>ไม่จำเป็นต้องระบุ</p>
             </div>
-            <% for(let i =0; i < flavours.length; i++) { %>
             <div class="checkbox">
-                <div class="checkbox_flavour" >
-                    <input type="checkbox" name="flavour" id="flavour">
-                    <p><%= flavours[i].name %></p>
+                    <% for(let i =0; i < flavours.length; i++) { %>
+                        <div class="topping">
+                            <div class="checkbox_flavour" >
+                                <input type="checkbox" name="flavour" value='{"Name": "<%= flavours[i].Name %>", "Price": <%= flavours[i].Price %>}' onchange="updatePrice()">
+                                <p"><%= flavours[i].Name %></p>
+                            </div>
+                            <p>+<%= flavours[i].Price %></p>
+                        </div>
+                    <% } %>
                 </div>
-                <p>+<%= flavours[i].price %></p>
             </div>
-            <% } %>
+            <hr>
         </div>
-
-        <hr>
-
+        <% } %>
         <diV class="out_of_stock_case">
             <h4>วิธีดำเนินการกรณีของหมด</h4>
             <div>
@@ -77,11 +82,15 @@
             <input type="text" placeholder="ไม่จำเป็นต้องระบุ">
             <div>
                 <div>
-                    <p>รวมทั้งหมด: <span class="price"><%= total_price %>฿</span></p>
+                    <% if(Menu) { %>
+                    <p>รวมทั้งหมด: <span class="price">฿<%= Menu.Price %></span></p>
+                    <% } else { %>
+                    <p>รวมทั้งหมด: <span class="price">฿0</span></p>
+                    <% } %>
                 </div>
                 <div class="merchandise_amount_container">
                     <p class="minus" onclick="minus()">-</p>
-                    <p class="merchandise_amount"><%= merchandise.amount %></p>
+                    <p class="merchandise_amount">1</p>
                     <p class="add" onclick="add()">+</p>
                 </div>
             </div>
@@ -90,7 +99,71 @@
                 <button class="submit" type="submit">สั่งเลย</button>
             </div>
         </footer>
-
     </form>
+    <script src="/axios/axios.min.js"></script>
+    <script>
+        function add() {
+            let amount = document.querySelector('.merchandise_amount').innerText;
+            amount = parseInt(amount) + 1;
+            document.querySelector('.merchandise_amount').innerText = amount;
+            updatePrice();
+        }
+
+        function minus() {
+            let amount = document.querySelector('.merchandise_amount').innerText;
+            amount = parseInt(amount);
+            if(amount > 1) {
+                amount = amount - 1;
+            }
+            document.querySelector('.merchandise_amount').innerText = amount;
+            updatePrice();
+        }
+
+
+        function updatePrice() {
+            const checkboxes = document.querySelectorAll('input[name="flavour"]:checked');
+            let selectedFlavours = [];
+            checkboxes.forEach((checkbox) => {
+                selectedFlavours.push(JSON.parse(checkbox.value));
+            });
+
+            let basePrice = 0;
+            let toppingsPrice = 0;
+
+            selectedFlavours.forEach((flavour) => {
+                toppingsPrice += flavour.Price;
+            });
+
+            const amount = parseInt(document.querySelector('.merchandise_amount').innerText);
+            const totalPrice = (basePrice + toppingsPrice) * amount;
+
+            document.querySelector('.price').innerText = `฿${totalPrice}`;
+        }
+
+        // function addOrder() {
+        //     const checkboxes = document.querySelectorAll('input[name="flavour"]:checked');
+        //     let selectedFlavours = [];
+        //     checkboxes.forEach((checkbox) => {
+        //         selectedFlavours.push(JSON.parse(checkbox.value));
+        //     });
+
+        //     const amount = parseInt(document.querySelector('.merchandise_amount').innerText);
+        //     const out_of_stock_method = document.getElementById('out_of_stock_method').value;
+        //     const note = document.querySelector('input[placeholder="ไม่จำเป็นต้องระบุ"]').value;
+
+        //     const orderData = {
+        //         flavours: selectedFlavours,
+        //         amount: amount,
+        //         out_of_stock_method: out_of_stock_method,
+        //         note: note
+        //     };
+
+        //     axios({
+        //         method: 'post',
+        //         url: '/'
+        //     })
+        // }
+
+    </script>
 </body>
 </html>

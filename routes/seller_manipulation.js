@@ -8,8 +8,6 @@ router.get('/seller_manipulation', async (req, res) => {
     const menus = await Menus.find({});
     const sellermanipulation = menus;
 
-    console.log(menus);
-
     res.render('seller_manipulation', {seller_manipulation: sellermanipulation})
 })
 

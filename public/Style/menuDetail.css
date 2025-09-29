@@ -108,6 +108,13 @@ form {
 .checkbox {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    gap: 15px;
+    .topping {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
     input {
         width: 35px;
         height: 35px;
@@ -118,6 +125,7 @@ form {
     .checkbox_flavour {
         display: flex;
         gap: 10px;
+        align-items: center;
     }
 }
 

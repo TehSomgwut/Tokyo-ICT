@@ -15,22 +15,21 @@ router.get('/menuDetail', async (req, res) => {
     }
 });
 
-router.post('/menuDetail/:id', async (req, res) => {
+router.get('/menuDetail/:id', async (req, res) => {
     const { id } = req.params;
-    const { amount } = req.body;
     try {
         const menu = await Menu.findById(id);
+        const amount = await Order.countDocuments({ CusGmail: req.session.email, Status: "ในตะกร้า" });
         if(menu.Tag === 'เครป') {
             let Flavours = await Menu.find({ Tag: 'ท็อปปิ้ง'})
-            res.render('menuDetail', { menu: menu, flavours: Flavours, total_price: menu.Price });
+            return res.render('menuDetail', { Menu: menu, flavours: Flavours, total_price: menu.Price, orderAmount: amount, cus: req.session.email });
         }
-    
+        return res.render('menuDetail', { Menu: menu, flavours: null, total_price: menu.Price, orderAmount: amount, cus: req.session.email });
     }
     catch (error) {
-        console.error('Error fetching menu details:', error);
-        res.status(500).send('Internal Server Error');
+        console.log('Error fetching menu details:', error);
+        return res.status(500).send('Internal Server Error');
     }
 });
-
 
 module.exports = router;

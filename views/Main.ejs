@@ -43,6 +43,11 @@
             </div>
         </div>
         <div class="shopping_icon">
+          <% if(orderAmount) { %>
+          <div class="order_amount"><%= orderAmount %></div>
+          <% } else { %>
+          <div class="order_amount" style="display: none;">0</div>
+          <% } %>
           <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M3.875 7.75L7.75 2.58333H23.25L27.125 7.75M3.875 7.75V25.8333C3.875 26.5185 4.14717 27.1756 4.63164 27.66C5.11611 28.1445 5.77319 28.4167 6.45833 28.4167H24.5417C25.2268 28.4167 25.8839 28.1445 26.3684 27.66C26.8528 27.1756 27.125 26.5185 27.125 25.8333V7.75M3.875 7.75H27.125M20.6667 12.9167C20.6667 14.287 20.1223 15.6011 19.1534 16.5701C18.1844 17.539 16.8703 18.0833 15.5 18.0833C14.1297 18.0833 12.8156 17.539 11.8466 16.5701C10.8777 15.6011 10.3333 14.287 10.3333 12.9167" stroke="white" stroke-width="2.58333" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -95,7 +100,7 @@
         <div class="recommend_menus_container">
           
         <% for(let i = 0; i < recommendedMenus.length; i++) { %>
-          <div class="recommend_menus">
+          <div class="recommend_menus" onclick="window.location.href='/menuDetail/<%= recommendedMenus[i]._id %>'">
             <% if(recommendedMenus[i].Img) { %>
               <img src="<%= recommendedMenus[i].Img %>">
             <% } else { %>
@@ -107,16 +112,18 @@
                 <p><%= recommendedMenus[i].Name %></p>
                 <p class="recommend_price"><%= recommendedMenus[i].Price %> ฿</p>
               </div>
-              <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="9.4337" cy="9.4337" r="9.4337" fill="url(#paint0_linear_18_60)"/>
-              <path d="M9.50001 5.70834V13.2917M5.70834 9.50001H13.2917" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <defs>
-              <linearGradient id="paint0_linear_18_60" x1="3" y1="2" x2="15" y2="17.5" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#FFA600"/>
-              <stop offset="1" stop-color="#FF4B3A"/>
-              </linearGradient>
-              </defs>
-              </svg>
+              <div onclick="addOrder('<%= recommendedMenus[i]._id %>')">
+                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="9.4337" cy="9.4337" r="9.4337" fill="url(#paint0_linear_18_60)"/>
+                <path d="M9.50001 5.70834V13.2917M5.70834 9.50001H13.2917" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                <linearGradient id="paint0_linear_18_60" x1="3" y1="2" x2="15" y2="17.5" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FFA600"/>
+                <stop offset="1" stop-color="#FF4B3A"/>
+                </linearGradient>
+                </defs>
+                </svg>
+              </div>
             </div>
           </div>
         <% } %>
@@ -131,7 +138,7 @@
         </div>
         <div class="menus">
           <% for(let i=0; i < menus.length; i++) { %>
-              <div class="menu">
+              <div class="menu" onclick="window.location.href='/menuDetail/<%= menus[i]._id %>'">
               <div>
                 <img class="menu_img" src=<%= menus[i].Img %>></img>
                 <div>
@@ -140,16 +147,18 @@
                   <p class="price">ราคา <%= menus[i].Price %>฿</p>
                 </div>
               </div>
-              <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="9.4337" cy="9.4337" r="9.4337" fill="url(#paint0_linear_18_60)"/>
-              <path d="M9.50001 5.70834V13.2917M5.70834 9.50001H13.2917" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <defs>
-              <linearGradient id="paint0_linear_18_60" x1="3" y1="2" x2="15" y2="17.5" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#FFA600"/>
-              <stop offset="1" stop-color="#FF4B3A"/>
-              </linearGradient>
-              </defs>
-              </svg>
+              <div onclick="addOrder('<%= menus[i]._id %>')">
+                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="9.4337" cy="9.4337" r="9.4337" fill="url(#paint0_linear_18_60)"/>
+                <path d="M9.50001 5.70834V13.2917M5.70834 9.50001H13.2917" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                <linearGradient id="paint0_linear_18_60" x1="3" y1="2" x2="15" y2="17.5" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FFA600"/>
+                <stop offset="1" stop-color="#FF4B3A"/>
+                </linearGradient>
+                </defs>
+                </svg>
+              </div>
             </div>
             <hr>
           <% } %>
@@ -264,5 +273,25 @@
       </div>
     </div>
     <script src="script/style/main.js"></script>
+    <script src="/axios/axios.min.js"></script>
+    <script>
+      function addOrder(id) {
+        axios({
+          method: 'post',
+          url: `/addOrder/${id}`,
+          data: {
+            amount: 1
+          }
+        }).then((res) => {
+          const amount = document.querySelector('.order_amount');
+          amount.style.display = "flex";
+          amount.innerText = res.data.orderAmount;
+          amount.addEventListener('change', () => {
+            amount.style.animation = "pop 0.3s ease";
+          });
+          alert("เพิ่มลงตะกร้าแล้ว!!");
+        });
+      }
+    </script>
 </body>
 </html>

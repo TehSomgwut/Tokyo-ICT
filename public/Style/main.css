@@ -45,16 +45,6 @@ a {
         padding: 0;
         transition: 250ms;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     nav {
         display: flex;
         flex-direction: row;
@@ -639,5 +629,42 @@ a {
         flex-direction: column;
         align-items: center;
         font-weight: 250;
+    }
+}
+
+
+.shopping_icon {
+    position: relative;
+}
+
+.shopping_icon .order_amount {
+    position: absolute;
+    background-color: var(--main-color);
+    color: white;
+    font-size: 0.7em;
+    font-weight: 600;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    top: -10px;
+    right: -15px;
+    border: 3px solid white;
+    animation: pop 500ms ease;
+}
+
+@keyframes pop{
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+        background-color: red;
+    }
+    100% {
+        transform: scale(1);
     }
 }

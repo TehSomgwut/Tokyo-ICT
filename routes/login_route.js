@@ -10,7 +10,6 @@ router.get('/', (req, res) => {
 })
 
 router.get('/login', (req, res) => {
-    req.session.destroy();
     res.render('login', {message: ""})
 })
 

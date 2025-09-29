@@ -105,7 +105,7 @@
             </div>
             <div class="button_container">
                 <button class="add_chart" onclick="addOrder(event, '<%= Menu._id %>')">เพิ่มลงตะกร้า</button>
-                <button class="submit" type="submit" onclick="addOrder(); window.location.href='/chart/<%= cus %>'">สั่งเลย</button>
+                <button class="submit" type="submit" onclick="toChart(event, '<%= Menu._id %>', '<%= cus %>')">สั่งเลย</button>
             </div>
         </footer>
     </form>
@@ -180,6 +180,11 @@
                 console.log('Error adding order: ', err);
                 alert('ข้อผิดพลาดเกิดขึ้น');
             });
+        }
+
+        function toChart(event, id, cus_id) {
+            addOrder(event, id)
+            window.location.href = `/chart/${cus_id}`
         }
 
     </script>

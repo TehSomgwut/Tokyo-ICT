@@ -93,9 +93,10 @@ nav {
             padding: 3px;
             color: white;
             align-items: center;
+            gap: 10px;
             .minus, .add {
                 height: 13px;
-                width: 13px;
+                width: auto;
                 background-color: #ff7c70;
                 display: flex;
                 justify-content: center;

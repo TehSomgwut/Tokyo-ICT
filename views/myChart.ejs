@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My chart</title>
-    <link rel="stylesheet" href="/public/Style/myChart.css">
+    <link rel="stylesheet" href="/Style/myChart.css">
 </head>
 <body>
     <nav>
@@ -22,73 +22,31 @@
         <div class="merchandise">
             <div>
                 <div class="detail">
+                    <% if(!orders[i].menu.Img) { %>
                     <div class="img"></div>
+                    <% } else { %>
+                    <img src="/<%= orders[i].menu.Img %>" class="img">
+                    <% } %>
                     <div>
-                        <h3><%= orders[i].name %></h3>
-                        <p><%= orders[i].flavour %></p>
+                        <h3><%= orders[i].menu.Name %></h3>
+                        <p><%= orders[i].menu.Detail %></p>
                     </div>
                 </div>
                 <div>
                     <div class="merchandise_amount_container">
-                        <p class="minus" onclick="minus()">-</p>
-                        <p class="merchandise_amount" id="amount_<%= i %>"><%= orders[i].amount %></p>
-                        <p class="add" onclick="add()">+</p>
+                        <p class="minus">จำนวน</p>
+                        <p class="merchandise_amount"><%= orders[i].order.Quantity %></p>
+                        <p class="add">ชิ้น</p>
                     </div>
                     <div>
-                        <p>ราคา: <span>฿<%= orders[i].price %></span></p>
+                        <p>ราคา: <span>฿<%= orders[i].order.Price %></span></p>
                     </div>
                 </div>
             </div>
             <hr>
-            <p>หมายเหตุ: <%= orders[i].note %></p>
+            <p>หมายเหตุ: <%= orders[i].order.Note %></p>
         </div>
         <% } %>
-        <div class="merchandise">
-            <div>
-                <div class="detail">
-                    <div class="img"></div>
-                    <div>
-                        <h3>โตเกียว</h3>
-                        <p>เค็ม</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="merchandise_amount_container">
-                        <p class="minus">-</p>
-                        <p class="merchandise_amount">2</p>
-                        <p class="add">+</p>
-                    </div>
-                    <div>
-                        <p>ราคา: <span>฿20</span></p>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <p>หมายเหตุ: ไม่มี</p>
-        </div>
-        <div class="merchandise">
-            <div>
-                <div class="detail">
-                    <div class="img"></div>
-                    <div>
-                        <h3>โตเกียว</h3>
-                        <p>เค็ม</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="merchandise_amount_container">
-                        <p class="minus">-</p>
-                        <p class="merchandise_amount">2</p>
-                        <p class="add">+</p>
-                    </div>
-                    <div>
-                        <p>ราคา: <span>฿20</span></p>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <p>หมายเหตุ: ไม่มี</p>
-        </div>
     </div>
 
     <footer>
@@ -107,6 +65,6 @@
             <button type="submit">เลือกวิธีการชำระเงิน</button>
         </form>
     </footer>
-    <script src="/public/script/style/myChart.js"></script>
+    <script src="/script/style/myChart.js"></script>
 </body>
 </html>

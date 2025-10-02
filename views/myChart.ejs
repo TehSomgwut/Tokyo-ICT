@@ -8,7 +8,7 @@
 </head>
 <body>
     <nav>
-        <div>
+        <div onclick="window.history.back()">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M14.9999 18L8.99994 12L14.9999 6" stroke="black" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -22,7 +22,7 @@
         <div class="merchandise">
             <div>
                 <div class="detail">
-                    <% if(!orders[i].menu.Img) { %>
+                    <% if(!orders[i].menu || !orders[i].menu.Img) { %>
                     <div class="img"></div>
                     <% } else { %>
                     <img src="/<%= orders[i].menu.Img %>" class="img">
@@ -57,14 +57,20 @@
         <form>
             <input type="text" name="customer_name" placeholder="ดีเจโอ๋เอ๋ สบัดพุง">
             <div>
-                <p>รวมทั้งหมด: <span>20฿</span></p>
+                <p>รวมทั้งหมด: <span><%= total_Price%>฿</span></p>
                 <div>
                     <p><a><u>breakdown </u></a><span>></span></p>
                 </div>
             </div>
-            <button type="submit">เลือกวิธีการชำระเงิน</button>
+            <button onclick="Submit(event)">เลือกวิธีการชำระเงิน</button>
         </form>
     </footer>
     <script src="/script/style/myChart.js"></script>
+    <script>
+        function Submit(e) {
+            e.preventDefault()
+            window.location.href='/history/<%= orders[0].order.CusGmail %>'
+        }
+    </script>
 </body>
 </html>

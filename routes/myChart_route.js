@@ -19,27 +19,30 @@ router.get('/chart/:id', async (req, res) => {
         if (req.params.id == req.session.email) {
             const Cus = req.session.email;
 
-            const orders = await Order.find({ CusGmail: Cus, Status: "ในตะกร้า" });
+            let orders = await Order.find({ CusGmail: Cus, Status: "ในตะกร้า" });
             if (!orders || orders.length === 0) {
-                return res.status(404).send("No orders found");
+                orders = []
+                return res.send("กรุณาเพิ่มเมนูที่หน้าหลักครับคุณลูกค้า ปล. ขี้เกีจทำหน้านี้")
             }
-
             const menus = await Promise.all(
                 orders.map(async (order) => {
                     const menu = await Menus.findOne({ Name: order.Order });
                     return {
                         order: order,
-                        menu: menu ? { Name: menu.Name, Detail: menu.Detail, Img :menu.Img } : null
+                        menu: menu ? { Name: menu.Name, Detail: menu.Detail, Img: menu.Img } : { Name: null, Detail: null, Img: null }
                     };
                 })
             );
-            console.log(menus, orders)
 
             if (!menus || menus.length === 0) {
                 return res.status(404).send("No menus found");
             }
 
-            return res.status(200).render('myChart', { orders: menus });
+            const total_Price = menus.reduce((total, item) => {
+                return total + (item.order.Price * item.order.Quantity);
+            }, 0);
+
+            return res.status(200).render('myChart', { orders: menus, total_Price });
         } else {
             return res.status(401).redirect('/login');
         }

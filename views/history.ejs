@@ -4,29 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>history</title>
-    <link rel="stylesheet" href="Style/history.css">
+    <link rel="stylesheet" href="/Style/history.css">
 </head>
 <body>
     <nav>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M14.9999 18L8.99994 12L14.9999 6" stroke="black" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <div onclick="window.history.back()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.9999 18L8.99994 12L14.9999 6" stroke="black" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
         <h2>คำสั่งซื้อของฉัน</h2>
     </nav>
 
-    <div class="recently">
+    <div class="recently"> 
         <p>เพิ่งสั่ง</p>
+        <% for(let i = 0; i < recent_order.length; i++) { %>
         <div class="recently_container">
             <div class="detail">
-                <p class="date"><%= recent_order.time.date %>, <%= recent_order.time.time %>น.</p>
-                <p><%= recent_order.name %> / จำนวน: <%= recent_order.amount %></p>
+                <p class="date"><%= recent_order[i].Date %> น.</p>
+                <p><%= recent_order[i].Order %> / จำนวน: <%= recent_order[i].Quantity %></p>
                 <div>
-                    <p><a><u><%= recent_order.status.price %></u></a></p>
-                    <p  class="recently_price">฿<%= recent_order.price %></p>
+                    <p class="recently_price">฿<%= recent_order[i].Price %></p>
                 </div>
-                <h3><%= recent_order.status.status %></h3>
+                <h3><%= recent_order[i].Status %></h3>
             </div>
         </div>
+        <% } %>
     </div>
 
     <div class="history">
@@ -36,11 +39,13 @@
             <path d="M14.9999 18L8.99994 12L14.9999 6" stroke="black" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </div>
+        <% for(let i = 0; i < slip.length; i++) { %>
         <div class="slip">
-            <p class="date">25/6/2025, 13:00 น.</p>
-            <p>รายการอาหารที่: 1 / จำนวน: 2</p>
+            <p class="date"><%= slip[i].Date %></p>
+            <p><%= slip[i].Order %> / จำนวน: <%= slip[i].Quantity %></p>
             <p><a><u>สั่งซื้อรายการนี้ซ้ำ</u></a></p>
         </div>
-    </div>
+        <% } %>
+</div>
 </body>
 </html>

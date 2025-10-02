@@ -521,6 +521,7 @@ a {
                 background-color: var(--form-background);
                 border-radius: 7px;
                 padding: 5px;
+                margin-left: 0px;
                 .recommend_menus_img {
                     height: 100px;
                     background-color:#008CFF;

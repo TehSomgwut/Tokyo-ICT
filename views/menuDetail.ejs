@@ -18,7 +18,7 @@
             </svg>
             <h2>รายละเอียด</h2>
         </div>
-        <div class="shopping_bag">
+        <div class="shopping_bag" onclick="window.location.href = '/chart/<%= cus %>'">
           <% if(orderAmount) { %>
           <div class="order_amount"><%= orderAmount %></div>
           <% } else { %>
@@ -159,7 +159,7 @@
             checkboxes.forEach((checkbox) => {
                 selectedFlavours.push(JSON.parse(checkbox.value));
             });
-            axios({
+            return axios({
                 method: 'post',
                 url: `/add/${id}`,
                 data: {
@@ -182,8 +182,8 @@
             });
         }
 
-        function toChart(event, id, cus_id) {
-            addOrder(event, id)
+        async function toChart(event, id, cus_id) {
+            await addOrder(event, id)
             window.location.href = `/chart/${cus_id}`
         }
 

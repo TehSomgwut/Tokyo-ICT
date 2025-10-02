@@ -212,6 +212,7 @@ nav {
                 background-color: var(--main-colors);
                 align-items: center;
                 color: white;
+                border: none;
             }
             .cancel {
                 box-sizing: border-box;
@@ -221,4 +222,11 @@ nav {
             }
         }
     }
+}
+
+
+.actions {
+    display: flex;
+    gap: 10px;
+    width: 100%;
 }
